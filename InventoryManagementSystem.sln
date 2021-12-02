@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginScreen", "LoginScreen\LoginScreen.csproj", "{33E41562-70E4-4658-BE87-945646BF74BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryScreen", "InventoryScreen\InventoryScreen.csproj", "{18C7CD29-FCFF-455F-8E24-F130E546ABAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33E41562-70E4-4658-BE87-945646BF74BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33E41562-70E4-4658-BE87-945646BF74BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33E41562-70E4-4658-BE87-945646BF74BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33E41562-70E4-4658-BE87-945646BF74BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18C7CD29-FCFF-455F-8E24-F130E546ABAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18C7CD29-FCFF-455F-8E24-F130E546ABAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18C7CD29-FCFF-455F-8E24-F130E546ABAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18C7CD29-FCFF-455F-8E24-F130E546ABAB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5BC101CF-28B3-473D-9D5A-85832FDE0CC2}
+	EndGlobalSection
+EndGlobal
