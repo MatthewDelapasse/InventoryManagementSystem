@@ -26,10 +26,9 @@ namespace LoginScreen
         {
             loginConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + Application.StartupPath + "InventoryManagementDB.mdf; Integrated Security=True; Connect Timeout=30; User Instance=True");
 
-            /* This tests to see what th startup path is and if it hits the net5.0-windows folder.
+            //This tests to see what th startup path is and if it hits the net5.0 - windows folder.
             MessageBox.Show(Application.StartupPath);
-            MessageBox.Show("The Startup path hits the database in net5.0-windows folder");
-            */
+
 
             loginConnection.Open();
         }
@@ -70,14 +69,32 @@ namespace LoginScreen
                         getUserPermissions = "SELECT IsAdmin FROM Employees WHERE Username ='" + txtUsername.Text + "' AND Password ='" + txtPassword.Text + "';";
                         bool isUserAdmin = CheckUserPermissions(getUserPermissions, loginConnection);
 
+
+                        Employees user = new Employees(txtUsername.Text, txtPassword.Text, isUserAdmin);
+
                         // Now the system has figured out if the user is an Admin, it can make its adjustments for the rest of the system
-                        if (isUserAdmin == true)
+                        if (user.isAdmin == true)
                         {
-                            MessageBox.Show("User is an Admin and will have admin access");
+                            //MessageBox.Show("User is an Admin and will have admin access");
+                            txtUsername.Controls.Clear();
+                            txtPassword.Controls.Clear();
+                            /*
+                             * Here I will open up the form to the system
+                             * where they will see certain buttons that
+                             * non-users will not see.
+                             */
                         }
                         else
                         {
-                            MessageBox.Show("User is not an Admin and will be limited on his ablities.");
+                            //MessageBox.Show("User is not an Admin and will be limited on his ablities.");
+                            txtUsername.Controls.Clear();
+                            txtPassword.Controls.Clear();
+
+                            /*
+                             * Here I will place code that will hide
+                             * certain buttons that are only authorized for 
+                             * the Admins in the system
+                             */
                         }
                     }
                     else
@@ -85,6 +102,8 @@ namespace LoginScreen
                         MessageBox.Show("Username/Password is inccorect!", "Incorrect Username/Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+
+
             }
 
         }
@@ -115,4 +134,6 @@ namespace LoginScreen
                 Created the Employees table (Login Screen will use data from the Employees table)
                 Created the Employees Class
                 Developed Main Functionality
+   12/2/2021 -  Instaniated the Employees Class
+                Placing comments on where I will manipulate the next form openning
 */

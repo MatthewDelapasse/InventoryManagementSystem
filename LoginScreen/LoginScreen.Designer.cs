@@ -91,6 +91,7 @@ namespace LoginScreen
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Matt\'s Inventory Management";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);
