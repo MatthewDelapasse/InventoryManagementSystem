@@ -16,6 +16,10 @@ namespace InventoryScreen
         {
             InitializeComponent();
         }
-
     }
 }
+
+/* Timeline for Inventory Screen
+ * 12/1/2021 - Created the GUI
+ * 
+ */

@@ -144,6 +144,7 @@ namespace LoginScreen
     }
 }
 
+
 /* Login Screen Timeline
    12/1/2021 -  Created the GUI
                 Created the Employees table (Login Screen will use data from the Employees table)
@@ -154,5 +155,5 @@ namespace LoginScreen
    12/6/2021 -  Getting the Login form to show the Main Menu form
                 Setting the appropriate permissions so that the Main Menu forms look different based on the user
                 Creating Data Validation for the process that checks the database for user
-                Completed the login setup 
+                Completed the login setup
 */
