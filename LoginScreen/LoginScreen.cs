@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using MainMenuScreen;
 
 namespace LoginScreen
 {
@@ -27,7 +28,7 @@ namespace LoginScreen
             loginConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + Application.StartupPath + "InventoryManagementDB.mdf; Integrated Security=True; Connect Timeout=30; User Instance=True");
 
             //This tests to see what th startup path is and if it hits the net5.0 - windows folder.
-            MessageBox.Show(Application.StartupPath);
+            //MessageBox.Show(Application.StartupPath);
 
 
             loginConnection.Open();
@@ -72,30 +73,32 @@ namespace LoginScreen
 
                         Employees user = new Employees(txtUsername.Text, txtPassword.Text, isUserAdmin);
 
-                        // Now the system has figured out if the user is an Admin, it can make its adjustments for the rest of the system
-                        if (user.isAdmin == true)
-                        {
-                            //MessageBox.Show("User is an Admin and will have admin access");
-                            txtUsername.Controls.Clear();
-                            txtPassword.Controls.Clear();
-                            /*
-                             * Here I will open up the form to the system
-                             * where they will see certain buttons that
-                             * non-users will not see.
-                             */
-                        }
-                        else
-                        {
-                            //MessageBox.Show("User is not an Admin and will be limited on his ablities.");
-                            txtUsername.Controls.Clear();
-                            txtPassword.Controls.Clear();
+                        // Here is the new way we check to see if the user is an Admin.
+                        frmMainMenu menu = new frmMainMenu(isUserAdmin);
+                        menu.Show();
 
-                            /*
-                             * Here I will place code that will hide
-                             * certain buttons that are only authorized for 
-                             * the Admins in the system
-                             */
-                        }
+                        // This was the old way of checking if user is admin back on 12/1/2021
+                        //// Now the system has figured out if the user is an Admin, it can make its adjustments for the rest of the system
+                        //if (user.isAdmin == true)
+                        //{
+                        //    MessageBox.Show("User is an Admin and will have admin access");
+                        //    txtUsername.Controls.Clear();
+                        //    txtPassword.Controls.Clear();
+
+                        //    frmMainMenu adminMainMenu = new frmMainMenu(isUserAdmin);
+
+                        //    adminMainMenu.Show();
+                        //}
+                        //else
+                        //{
+                        //    MessageBox.Show("User is not an Admin and will be limited on his ablities.");
+                        //    txtUsername.Controls.Clear();
+                        //    txtPassword.Controls.Clear();
+
+                        //    frmMainMenu nonAdminMainMenu = new frmMainMenu(isUserAdmin);
+
+                        //    nonAdminMainMenu.Show();
+                        //}
                     }
                     else
                     {
@@ -136,4 +139,7 @@ namespace LoginScreen
                 Developed Main Functionality
    12/2/2021 -  Instaniated the Employees Class
                 Placing comments on where I will manipulate the next form openning
+   12/6/2021 -  Getting the Login form to show the Main Menu form
+                Setting the appropriate permissions so that the Main Menu forms look different based on the user
+                Completed the login setup 
 */

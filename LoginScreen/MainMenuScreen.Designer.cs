@@ -117,6 +117,7 @@ namespace MainMenuScreen
             // 
             // btnViewInventory
             // 
+            this.btnViewInventory.AccessibleName = "";
             this.btnViewInventory.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnViewInventory.Location = new System.Drawing.Point(152, 315);
             this.btnViewInventory.Name = "btnViewInventory";

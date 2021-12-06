@@ -7,14 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LoginScreen;
 
 namespace MainMenuScreen
 {
     public partial class frmMainMenu : Form
     {
-        public frmMainMenu()
+        public frmMainMenu(bool admin)
         {
-            InitializeComponent();
+            bool userIsAdmin = admin;
+
+            if (userIsAdmin == false)
+            {
+                InitializeComponent();
+                this.btnViewInventory.Visible = false;
+            }
+            else
+            {
+                InitializeComponent();
+            }
         }
 
         private void btnAddLeaseTicket_Click(object sender, EventArgs e)
@@ -65,7 +76,7 @@ namespace MainMenuScreen
              */
         }
 
-        private void btnViewInventory_Click(object sender, EventArgs e)
+        public void btnViewInventory_Click(object sender, EventArgs e)
         {
             /*
              * This button will shoot the user
