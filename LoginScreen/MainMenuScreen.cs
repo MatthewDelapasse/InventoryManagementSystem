@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LoginScreen;
+using InventoryScreen;
 
 namespace MainMenuScreen
 {
@@ -26,8 +27,10 @@ namespace MainMenuScreen
             else
             {
                 InitializeComponent();
+                this.btnAddNewUser.Visible = false;
             }
         }
+
 
         // this button points users to a screen that will allow them to add lease tickets to the system
         private void btnAddLeaseTicket_Click(object sender, EventArgs e)
@@ -86,10 +89,8 @@ namespace MainMenuScreen
         // this button points managers to a screen that will allow them to see a full list of devices in the system
         public void btnViewInventory_Click(object sender, EventArgs e)
         {
-            /*
-             * This button will shoot the Manager
-             * over to the View Inventory Screen
-             */
+            frmInventory inventory = new frmInventory();
+            inventory.Show();
         }
 
         // this button points managers to a screen that will allow them to add a new user to the system
@@ -108,4 +109,5 @@ namespace MainMenuScreen
  *             Added the button Click events
  * 12/6/2021 - Manipulated the public frmMainMenu class to deal with permissions appropriately
  *             Added the BtnAddNewUser_Click Event
+ * 12/8/2021 - Making the Add New User Button invisible right to everyone because that will be a feature later down the line
  */
