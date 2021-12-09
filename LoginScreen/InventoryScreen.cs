@@ -24,6 +24,9 @@ namespace InventoryScreen
         DataTable inventoryTable;
         CurrencyManager inventoryManager;
 
+        string state;
+        int b;
+
         // Making the connection to the Database
         private void frmInventory_Load(object sender, EventArgs e)
         {
@@ -106,8 +109,15 @@ namespace InventoryScreen
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // I am doing this as a test to see if the button is working
-            MessageBox.Show("I am saving these changes.");
+            if (state.Equals("Add"))
+            {
+                b = inventoryManager.Position;
+                inventoryManager.AddNew();
+            }
+            else
+            {
+                MessageBox.Show("This means I am saving changes made when I clicked the edit button");
+            }
 
             //inventoryManager.EndCurrentEdit();
             StateSet("View");
@@ -124,6 +134,7 @@ namespace InventoryScreen
 
         private void StateSet(string Stateapp)
         {
+            state = Stateapp;
             switch (Stateapp)
             {
                 case "View":
