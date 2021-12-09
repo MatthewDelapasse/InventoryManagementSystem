@@ -31,7 +31,14 @@ namespace InventoryScreen
         // Making the connection to the Database
         private void frmInventory_Load(object sender, EventArgs e)
         {
-            inventoryConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + Application.StartupPath + "InventoryManagementDB.mdf; Integrated Security=True; Connect Timeout=30; User Instance=True");
+            /* new connection string
+            Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\Users\\mdelapasse\\source\\repos\\MatthewDelapasse\\InventoryManagementSystem\\InventoryManagementDB.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True
+
+               old connection string
+            Data Source=.\\SQLEXPRESS; AttachDbFilename=" + Application.StartupPath + "InventoryManagementDB.mdf; Integrated Security=True; Connect Timeout=30; User Instance=True
+            */
+
+           //inventoryConnection = new SqlConnection(" Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\Users\\mdelapasse\\source\\repos\\MatthewDelapasse\\InventoryManagementSystem\\InventoryManagementDB.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True");
             inventoryConnection.Open();
 
             // Establishing the command object for the form
@@ -63,24 +70,33 @@ namespace InventoryScreen
 
         private void frmInventory_FormClosing(object sender, FormClosingEventArgs e)
         {
-            try
+            // This checks to make sure that the user finishes his or her changes to the inventory before closing out the window.
+            if (state.Equals("Add") || state.Equals("Edit"))
             {
-                // Save the updated Inventory table
-                SqlCommandBuilder inventoryAdapterCommand = new SqlCommandBuilder(inventoryAdapter);
-                inventoryAdapter.Update(inventoryTable);
+                MessageBox.Show("You must finish what you are doing before we can close out the window.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Cancel = true;
             }
-            catch (Exception ex)
+            else
             {
-                //MessageBox.Show("Error saving the database:\r\n" + ex.Message, "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+                    // Save the updated Inventory table
+                    SqlCommandBuilder inventoryAdapterCommand = new SqlCommandBuilder(inventoryAdapter);
+                    inventoryAdapter.Update(inventoryTable);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error saving the database:\r\n" + ex.Message, "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // Closing the connection
+                inventoryConnection.Close();
+
+                // Disposing the objects
+                inventoryCommand.Dispose();
+                inventoryAdapter.Dispose();
+                inventoryTable.Dispose();
             }
-
-            // Closing the connection
-            inventoryConnection.Close();
-
-            // Disposing the objects
-            inventoryCommand.Dispose();
-            inventoryAdapter.Dispose();
-            inventoryTable.Dispose();
         }
         // ----------------------------------------End of Form Event Code ---------------------------------------
 
@@ -107,19 +123,110 @@ namespace InventoryScreen
 
         private void btnAddNewDevice_Click(object sender, EventArgs e)
         {
+            b = inventoryManager.Position;
             StateSet("Add");
+            inventoryManager.AddNew();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+     
+            // It determines the state of the application and the save button acts according to the view the user is saving changes in
             if (state.Equals("Add"))
             {
-                b = inventoryManager.Position;
-                inventoryManager.AddNew();
+                // Checking to make sure something has been inserted in those fields when saving changes in add view
+                if (!ValidateData())
+                {
+                    return;
+                }
+                else
+                {
+                    try
+                    {
+                        inventoryManager.EndCurrentEdit();
+
+                        // Saving the new device to the database to then be reopened to show all devices in the inventory table
+                        string savedDeviceTag = txtDeviceTag.Text;
+                        string savedDeviceName = txtDeviceName.Text;
+
+                        SqlCommandBuilder saveInventoryAdapterCommand = new SqlCommandBuilder(inventoryAdapter);
+                        inventoryAdapter.Update(inventoryTable);
+
+                        inventoryConnection.Close();
+
+                        // Reconnectiong and Openning back up the database to show the newly added device
+                        //inventoryConnection = new SqlConnection("Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\Users\\mdelapasse\\source\\repos\\MatthewDelapasse\\InventoryManagementSystem\\InventoryManagementDB.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True");
+                        inventoryCommand = new SqlCommand("SELECT * FROM Inventory", inventoryConnection);
+                        inventoryAdapter = new SqlDataAdapter();
+                        inventoryAdapter.SelectCommand = inventoryCommand;
+                        inventoryTable = new DataTable();
+                        inventoryAdapter.Fill(inventoryTable);
+
+                        // Rebinding the controls to the table
+                        txtDeviceTag.DataBindings.Clear();
+                        txtDeviceName.DataBindings.Clear();
+                        txtSerialNumber.DataBindings.Clear();
+                        txtDescription.DataBindings.Clear();
+                        chkLeasedOut.DataBindings.Clear();
+                        chkActive.DataBindings.Clear();
+
+                        txtDeviceTag.DataBindings.Add("Text", inventoryTable, "DeviceTag");
+                        txtDeviceName.DataBindings.Add("Text", inventoryTable, "DeviceName");
+                        txtSerialNumber.DataBindings.Add("Text", inventoryTable, "SerialNumber");
+                        txtDescription.DataBindings.Add("Text", inventoryTable, "Description");
+                        chkLeasedOut.DataBindings.Add("Checked", inventoryTable, "isLeasedOut");
+                        chkActive.DataBindings.Add("Checked", inventoryTable, "isActive");
+
+                        inventoryManager = (CurrencyManager)this.BindingContext[inventoryTable];
+
+                        // System is finding the newly added device
+                        for (int i = 0; i < inventoryTable.Rows.Count; i++)
+                        {
+                            if (inventoryTable.Rows[i]["DeviceTag"].ToString().Equals(savedDeviceTag) && inventoryTable.Rows[i]["DeviceName"].ToString().Equals(savedDeviceName))
+                            {
+                                MessageBox.Show("Device has been added to the System.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                StateSet("View");
+                                break;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error adding new Device.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
             else
             {
-                //MessageBox.Show("This means I am saving changes made when I clicked the edit button");
+                // Checking to make sure something has been inserted in those fields when saving changes in edit view
+                if (!ValidateData())
+                {
+                    return;
+                }
+                else
+                {
+                    try
+                    {
+                        inventoryManager.EndCurrentEdit();
+
+                        // Getting the device thats being edited
+                        string savedDeviceTag = txtDeviceTag.Text;
+                        string savedDeviceName = txtDeviceName.Text;
+                        int deviceRow;
+
+                        inventoryTable.DefaultView.Sort = "DeviceTag";
+                        deviceRow = inventoryTable.DefaultView.Find(savedDeviceTag);
+                        inventoryManager.Position = deviceRow;
+
+                        MessageBox.Show("Changes made to the Devices information have been saved.", "Saved Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        StateSet("View");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error saving record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
             }
 
             //inventoryManager.EndCurrentEdit();
@@ -155,6 +262,8 @@ namespace InventoryScreen
                     btnPrevious.Enabled = true;
                     btnNext.Enabled = true;
                     btnLast.Enabled = true;
+                    btnEditDevice.Enabled = true;
+                    btnAddNewDevice.Enabled = true;
                     btnSave.Enabled = false;
                     btnCancel.Enabled = false;
                     txtDeviceTag.BackColor = Color.Blue;
@@ -173,6 +282,8 @@ namespace InventoryScreen
                     btnLast.Enabled = false;
                     btnSave.Enabled = true;
                     btnCancel.Enabled = true;
+                    btnEditDevice.Enabled = false;
+                    btnAddNewDevice.Enabled = false;
                     txtDeviceTag.BackColor = Color.Red;
                     txtDeviceTag.ForeColor = Color.White;
                     txtDeviceTag.ReadOnly = false;
@@ -185,6 +296,40 @@ namespace InventoryScreen
             }
             txtDeviceTag.Focus();
         }
+
+        private bool ValidateData()
+        {
+            string message = "";
+            bool good = true;
+
+            if (txtDeviceTag.Text.Trim().Equals(""))
+            {
+                message = "Device needs a Tag.";
+                txtDeviceTag.Focus();
+                good = false;
+            }
+            
+            if (txtDeviceName.Text.Trim().Equals(""))
+            {
+                message = "Device needs a Name.";
+                txtDeviceName.Focus();
+                good = false;
+            }
+            
+            if (txtSerialNumber.Text.ToString().Equals(""))
+            {
+                message = "Device needs a Serial Number";
+                txtSerialNumber.Focus();
+                good = false;
+            }
+
+            if (!good)
+            {
+                MessageBox.Show(message, "No text fields should be left empty.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return (good);
+        }
         // ---------------------------------------- End of Method ---------------------------------------
     }
 }
@@ -193,9 +338,12 @@ namespace InventoryScreen
  * 12/8/21 - Created on the GUI
  *           Added the Database Connection
  *           Added the Form Load and the Form Closing events
- *           Added the Add a New Device button with functionality
- *           Added the Save and Cancel button with functionality
+ *           Added the Add a New Device button with some functionality
+ *           Added the Save and Cancel button with some functionality
  *           Added the First, Previous, Next, and Last button with functionality
  * 12/9/21 - Added the Edit Device Button with functionality
- *           Adding some Comments to separate out code functions
+ *           Added some Comments to separate out code functions
+ *           Added Validation method for saving data
+ *           Created the functionality for the Add New Device, Save, and Cancel button
+ *           created the functionality for the Edit a Device Button
  */

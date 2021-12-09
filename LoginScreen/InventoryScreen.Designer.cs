@@ -75,7 +75,7 @@ namespace InventoryScreen
             this.txtDeviceTag.Location = new System.Drawing.Point(108, 64);
             this.txtDeviceTag.Name = "txtDeviceTag";
             this.txtDeviceTag.Size = new System.Drawing.Size(244, 23);
-            this.txtDeviceTag.TabIndex = 2;
+            this.txtDeviceTag.TabIndex = 1;
             // 
             // label3
             // 
@@ -92,7 +92,7 @@ namespace InventoryScreen
             this.txtDeviceName.Location = new System.Drawing.Point(108, 105);
             this.txtDeviceName.Name = "txtDeviceName";
             this.txtDeviceName.Size = new System.Drawing.Size(244, 23);
-            this.txtDeviceName.TabIndex = 4;
+            this.txtDeviceName.TabIndex = 2;
             // 
             // label4
             // 
@@ -109,7 +109,7 @@ namespace InventoryScreen
             this.txtSerialNumber.Location = new System.Drawing.Point(108, 146);
             this.txtSerialNumber.Name = "txtSerialNumber";
             this.txtSerialNumber.Size = new System.Drawing.Size(244, 23);
-            this.txtSerialNumber.TabIndex = 6;
+            this.txtSerialNumber.TabIndex = 3;
             // 
             // label5
             // 
@@ -127,7 +127,7 @@ namespace InventoryScreen
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(244, 66);
-            this.txtDescription.TabIndex = 8;
+            this.txtDescription.TabIndex = 4;
             // 
             // chkLeasedOut
             // 
@@ -135,7 +135,7 @@ namespace InventoryScreen
             this.chkLeasedOut.Location = new System.Drawing.Point(108, 262);
             this.chkLeasedOut.Name = "chkLeasedOut";
             this.chkLeasedOut.Size = new System.Drawing.Size(85, 19);
-            this.chkLeasedOut.TabIndex = 9;
+            this.chkLeasedOut.TabIndex = 5;
             this.chkLeasedOut.Text = "Leased Out";
             this.chkLeasedOut.UseVisualStyleBackColor = true;
             // 
@@ -145,7 +145,7 @@ namespace InventoryScreen
             this.chkActive.Location = new System.Drawing.Point(218, 262);
             this.chkActive.Name = "chkActive";
             this.chkActive.Size = new System.Drawing.Size(59, 19);
-            this.chkActive.TabIndex = 10;
+            this.chkActive.TabIndex = 6;
             this.chkActive.Text = "Active";
             this.chkActive.UseVisualStyleBackColor = true;
             // 
@@ -164,7 +164,7 @@ namespace InventoryScreen
             this.btnSave.Location = new System.Drawing.Point(123, 381);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(70, 27);
-            this.btnSave.TabIndex = 12;
+            this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -174,7 +174,7 @@ namespace InventoryScreen
             this.btnCancel.Location = new System.Drawing.Point(199, 381);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(70, 27);
-            this.btnCancel.TabIndex = 13;
+            this.btnCancel.TabIndex = 14;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -184,7 +184,7 @@ namespace InventoryScreen
             this.btnFirst.Location = new System.Drawing.Point(117, 304);
             this.btnFirst.Name = "btnFirst";
             this.btnFirst.Size = new System.Drawing.Size(36, 28);
-            this.btnFirst.TabIndex = 14;
+            this.btnFirst.TabIndex = 7;
             this.btnFirst.Text = "|<";
             this.btnFirst.UseVisualStyleBackColor = true;
             this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
@@ -194,7 +194,7 @@ namespace InventoryScreen
             this.btnPrevious.Location = new System.Drawing.Point(159, 304);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(36, 28);
-            this.btnPrevious.TabIndex = 15;
+            this.btnPrevious.TabIndex = 8;
             this.btnPrevious.Text = "<";
             this.btnPrevious.UseVisualStyleBackColor = true;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
@@ -204,7 +204,7 @@ namespace InventoryScreen
             this.btnNext.Location = new System.Drawing.Point(201, 304);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(36, 28);
-            this.btnNext.TabIndex = 16;
+            this.btnNext.TabIndex = 9;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -214,7 +214,7 @@ namespace InventoryScreen
             this.btnLast.Location = new System.Drawing.Point(243, 304);
             this.btnLast.Name = "btnLast";
             this.btnLast.Size = new System.Drawing.Size(36, 28);
-            this.btnLast.TabIndex = 17;
+            this.btnLast.TabIndex = 10;
             this.btnLast.Text = ">|";
             this.btnLast.UseVisualStyleBackColor = true;
             this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
@@ -224,7 +224,7 @@ namespace InventoryScreen
             this.btnEditDevice.Location = new System.Drawing.Point(199, 338);
             this.btnEditDevice.Name = "btnEditDevice";
             this.btnEditDevice.Size = new System.Drawing.Size(116, 37);
-            this.btnEditDevice.TabIndex = 18;
+            this.btnEditDevice.TabIndex = 12;
             this.btnEditDevice.Text = "Edit Device Info";
             this.btnEditDevice.UseVisualStyleBackColor = true;
             this.btnEditDevice.Click += new System.EventHandler(this.btnEditDevice_Click);

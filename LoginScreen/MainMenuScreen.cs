@@ -110,4 +110,5 @@ namespace MainMenuScreen
  * 12/6/2021 - Manipulated the public frmMainMenu class to deal with permissions appropriately
  *             Added the BtnAddNewUser_Click Event
  * 12/8/2021 - Making the Add New User Button invisible right to everyone because that will be a feature later down the line
+ * 12/9/2021 - Changing the view of the Main Menu
  */
