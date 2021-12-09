@@ -47,6 +47,7 @@ namespace InventoryScreen
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnLast = new System.Windows.Forms.Button();
+            this.btnEditDevice = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -131,7 +132,7 @@ namespace InventoryScreen
             // chkLeasedOut
             // 
             this.chkLeasedOut.AutoSize = true;
-            this.chkLeasedOut.Location = new System.Drawing.Point(108, 279);
+            this.chkLeasedOut.Location = new System.Drawing.Point(108, 262);
             this.chkLeasedOut.Name = "chkLeasedOut";
             this.chkLeasedOut.Size = new System.Drawing.Size(85, 19);
             this.chkLeasedOut.TabIndex = 9;
@@ -141,7 +142,7 @@ namespace InventoryScreen
             // chkActive
             // 
             this.chkActive.AutoSize = true;
-            this.chkActive.Location = new System.Drawing.Point(218, 279);
+            this.chkActive.Location = new System.Drawing.Point(218, 262);
             this.chkActive.Name = "chkActive";
             this.chkActive.Size = new System.Drawing.Size(59, 19);
             this.chkActive.TabIndex = 10;
@@ -160,7 +161,7 @@ namespace InventoryScreen
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(108, 381);
+            this.btnSave.Location = new System.Drawing.Point(123, 381);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(70, 27);
             this.btnSave.TabIndex = 12;
@@ -170,7 +171,7 @@ namespace InventoryScreen
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(184, 381);
+            this.btnCancel.Location = new System.Drawing.Point(199, 381);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(70, 27);
             this.btnCancel.TabIndex = 13;
@@ -180,7 +181,7 @@ namespace InventoryScreen
             // 
             // btnFirst
             // 
-            this.btnFirst.Location = new System.Drawing.Point(77, 304);
+            this.btnFirst.Location = new System.Drawing.Point(117, 304);
             this.btnFirst.Name = "btnFirst";
             this.btnFirst.Size = new System.Drawing.Size(36, 28);
             this.btnFirst.TabIndex = 14;
@@ -190,7 +191,7 @@ namespace InventoryScreen
             // 
             // btnPrevious
             // 
-            this.btnPrevious.Location = new System.Drawing.Point(133, 304);
+            this.btnPrevious.Location = new System.Drawing.Point(159, 304);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(36, 28);
             this.btnPrevious.TabIndex = 15;
@@ -200,7 +201,7 @@ namespace InventoryScreen
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(184, 304);
+            this.btnNext.Location = new System.Drawing.Point(201, 304);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(36, 28);
             this.btnNext.TabIndex = 16;
@@ -210,7 +211,7 @@ namespace InventoryScreen
             // 
             // btnLast
             // 
-            this.btnLast.Location = new System.Drawing.Point(241, 304);
+            this.btnLast.Location = new System.Drawing.Point(243, 304);
             this.btnLast.Name = "btnLast";
             this.btnLast.Size = new System.Drawing.Size(36, 28);
             this.btnLast.TabIndex = 17;
@@ -218,11 +219,22 @@ namespace InventoryScreen
             this.btnLast.UseVisualStyleBackColor = true;
             this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
             // 
+            // btnEditDevice
+            // 
+            this.btnEditDevice.Location = new System.Drawing.Point(199, 338);
+            this.btnEditDevice.Name = "btnEditDevice";
+            this.btnEditDevice.Size = new System.Drawing.Size(116, 37);
+            this.btnEditDevice.TabIndex = 18;
+            this.btnEditDevice.Text = "Edit Device Info";
+            this.btnEditDevice.UseVisualStyleBackColor = true;
+            this.btnEditDevice.Click += new System.EventHandler(this.btnEditDevice_Click);
+            // 
             // frmInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(405, 414);
+            this.Controls.Add(this.btnEditDevice);
             this.Controls.Add(this.btnLast);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrevious);
@@ -270,6 +282,7 @@ namespace InventoryScreen
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnLast;
+        private System.Windows.Forms.Button btnEditDevice;
     }
 }
 

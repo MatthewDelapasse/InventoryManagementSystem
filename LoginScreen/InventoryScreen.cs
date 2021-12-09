@@ -27,6 +27,7 @@ namespace InventoryScreen
         string state;
         int b;
 
+        // ------------------------------------------- Form Event Code ---------------------------------------
         // Making the connection to the Database
         private void frmInventory_Load(object sender, EventArgs e)
         {
@@ -70,7 +71,7 @@ namespace InventoryScreen
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error saving the database:\r\n" + ex.Message, "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Error saving the database:\r\n" + ex.Message, "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             // Closing the connection
@@ -81,7 +82,9 @@ namespace InventoryScreen
             inventoryAdapter.Dispose();
             inventoryTable.Dispose();
         }
+        // ----------------------------------------End of Form Event Code ---------------------------------------
 
+        // ------------------------------------------- Buton Code ---------------------------------------
         private void btnFirst_Click(object sender, EventArgs e)
         {
             inventoryManager.Position = 0;
@@ -116,7 +119,7 @@ namespace InventoryScreen
             }
             else
             {
-                MessageBox.Show("This means I am saving changes made when I clicked the edit button");
+                //MessageBox.Show("This means I am saving changes made when I clicked the edit button");
             }
 
             //inventoryManager.EndCurrentEdit();
@@ -126,12 +129,22 @@ namespace InventoryScreen
         private void btnCancel_Click(object sender, EventArgs e)
         {
             // I am doing this as a test to see if the button is working
-            MessageBox.Show("I am canceling my changes.");
+            //MessageBox.Show("I am canceling my changes.");
 
             inventoryManager.CancelCurrentEdit();
             StateSet("View");
         }
 
+        private void btnEditDevice_Click(object sender, EventArgs e)
+        {
+            // Testing the click event to make sure it is tied to the form
+            //MessageBox.Show("Form now entering Edit Mode");
+
+            StateSet("Edit");
+        }
+        // ---------------------------------------End of Buton Code ---------------------------------------
+
+        // ------------------------------------------- Methods ---------------------------------------
         private void StateSet(string Stateapp)
         {
             state = Stateapp;
@@ -172,6 +185,7 @@ namespace InventoryScreen
             }
             txtDeviceTag.Focus();
         }
+        // ---------------------------------------- End of Method ---------------------------------------
     }
 }
 
@@ -182,4 +196,6 @@ namespace InventoryScreen
  *           Added the Add a New Device button with functionality
  *           Added the Save and Cancel button with functionality
  *           Added the First, Previous, Next, and Last button with functionality
+ * 12/9/21 - Added the Edit Device Button with functionality
+ *           Adding some Comments to separate out code functions
  */

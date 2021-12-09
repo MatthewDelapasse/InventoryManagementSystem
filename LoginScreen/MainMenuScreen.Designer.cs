@@ -120,7 +120,7 @@ namespace MainMenuScreen
             // 
             this.btnViewInventory.AccessibleName = "";
             this.btnViewInventory.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnViewInventory.Location = new System.Drawing.Point(84, 314);
+            this.btnViewInventory.Location = new System.Drawing.Point(84, 266);
             this.btnViewInventory.Name = "btnViewInventory";
             this.btnViewInventory.Size = new System.Drawing.Size(129, 43);
             this.btnViewInventory.TabIndex = 7;
@@ -132,7 +132,7 @@ namespace MainMenuScreen
             // 
             this.btnAddNewUser.AccessibleName = "";
             this.btnAddNewUser.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddNewUser.Location = new System.Drawing.Point(219, 314);
+            this.btnAddNewUser.Location = new System.Drawing.Point(219, 266);
             this.btnAddNewUser.Name = "btnAddNewUser";
             this.btnAddNewUser.Size = new System.Drawing.Size(129, 43);
             this.btnAddNewUser.TabIndex = 8;
@@ -144,7 +144,7 @@ namespace MainMenuScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 460);
+            this.ClientSize = new System.Drawing.Size(448, 348);
             this.Controls.Add(this.btnAddNewUser);
             this.Controls.Add(this.btnViewInventory);
             this.Controls.Add(this.btnSearchMaintenanceTicket);
