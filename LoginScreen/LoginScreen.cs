@@ -32,7 +32,7 @@ namespace LoginScreen
             Data Source=.\\SQLEXPRESS; AttachDbFilename=" + Application.StartupPath + "InventoryManagementDB.mdf; Integrated Security=True; Connect Timeout=30; User Instance=True
             */
 
-            //loginConnection = new SqlConnection(" Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\Users\\mdelapasse\\source\\repos\\MatthewDelapasse\\InventoryManagementSystem\\InventoryManagementDB.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True");
+            loginConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + Application.StartupPath + "InventoryManagementDB.mdf; Integrated Security=True; Connect Timeout=30; User Instance=True");
 
             //This tests to see what th startup path is and if it hits the net5.0 - windows folder.
             //MessageBox.Show(Application.StartupPath);

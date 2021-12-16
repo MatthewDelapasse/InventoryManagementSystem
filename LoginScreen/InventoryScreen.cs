@@ -38,7 +38,7 @@ namespace InventoryScreen
             Data Source=.\\SQLEXPRESS; AttachDbFilename=" + Application.StartupPath + "InventoryManagementDB.mdf; Integrated Security=True; Connect Timeout=30; User Instance=True
             */
 
-           //inventoryConnection = new SqlConnection(" Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\Users\\mdelapasse\\source\\repos\\MatthewDelapasse\\InventoryManagementSystem\\InventoryManagementDB.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True");
+            //inventoryConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + Application.StartupPath + "InventoryManagementDB.mdf; Integrated Security=True; Connect Timeout=30; User Instance=True);
             inventoryConnection.Open();
 
             // Establishing the command object for the form
