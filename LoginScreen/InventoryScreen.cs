@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.ComponentModel;
 
 namespace InventoryScreen
 {
@@ -22,6 +23,7 @@ namespace InventoryScreen
         SqlCommand inventoryCommand;
         SqlDataAdapter inventoryAdapter;
         DataTable inventoryTable;
+        DataView inventoryView;
         CurrencyManager inventoryManager;
 
         string state;
@@ -42,14 +44,15 @@ namespace InventoryScreen
             inventoryAdapter.SelectCommand = inventoryCommand;
             inventoryTable = new DataTable();
             inventoryAdapter.Fill(inventoryTable);
+            inventoryView = new DataView(inventoryTable);
 
             // Binding the Controls
             txtDeviceTag.DataBindings.Add("Text", inventoryTable, "DeviceTag");
             txtDeviceName.DataBindings.Add("Text", inventoryTable, "DeviceName");
             txtSerialNumber.DataBindings.Add("Text", inventoryTable, "SerialNumber");
             txtDescription.DataBindings.Add("Text", inventoryTable, "Description");
-            chkLeasedOut.DataBindings.Add("Checked", inventoryTable, "isLeasedOut");
-            chkActive.DataBindings.Add("Checked", inventoryTable, "isActive");
+            Convert.ToBoolean(chkLeasedOut.DataBindings.Add("Checked", inventoryTable, "isLeasedOut";
+            Convert.ToBoolean(chkActive.DataBindings.Add("Checked", inventoryTable, "isActive"));
 
             // Establish Currency Manager
             inventoryManager = (CurrencyManager)this.BindingContext[inventoryTable];
@@ -119,9 +122,12 @@ namespace InventoryScreen
             // This tells me the click event is tied to the form
             // MessageBox.Show("You have clicked the Add New Device button");
 
+            // System tries to switch from View to Add
             try
             {
+                b = inventoryManager.Position;
                 StateSet("Add");
+                inventoryManager.AddNew();
             }
             catch (Exception)
             {
@@ -160,7 +166,16 @@ namespace InventoryScreen
             // I am doing this as a test to see if the button is working
             //MessageBox.Show("I am canceling my changes.");
 
+            // Cancels the edit in progress
             inventoryManager.CancelCurrentEdit();
+
+            // System checks to see if the System was in Add mode and if it is the system goes back to the bookmark
+            if (state.Equals("Add"))
+            {
+                inventoryManager.Position = b;
+            }
+
+            // System switches back to View Mode
             StateSet("View");
         }
 

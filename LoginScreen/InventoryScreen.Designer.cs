@@ -54,87 +54,97 @@ namespace InventoryScreen
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(94, 20);
+            this.label1.Location = new System.Drawing.Point(134, 33);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(209, 32);
+            this.label1.Size = new System.Drawing.Size(306, 48);
             this.label1.TabIndex = 0;
             this.label1.Text = "Device Inventory";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 67);
+            this.label2.Location = new System.Drawing.Point(51, 112);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 15);
+            this.label2.Size = new System.Drawing.Size(100, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Device Tag:";
             // 
             // txtDeviceTag
             // 
             this.txtDeviceTag.BackColor = System.Drawing.Color.White;
-            this.txtDeviceTag.Location = new System.Drawing.Point(108, 64);
+            this.txtDeviceTag.Location = new System.Drawing.Point(154, 107);
+            this.txtDeviceTag.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDeviceTag.Name = "txtDeviceTag";
-            this.txtDeviceTag.Size = new System.Drawing.Size(244, 23);
+            this.txtDeviceTag.Size = new System.Drawing.Size(347, 31);
             this.txtDeviceTag.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 108);
+            this.label3.Location = new System.Drawing.Point(31, 180);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 15);
+            this.label3.Size = new System.Drawing.Size(120, 25);
             this.label3.TabIndex = 3;
             this.label3.Text = "Device Name:";
             // 
             // txtDeviceName
             // 
             this.txtDeviceName.BackColor = System.Drawing.Color.White;
-            this.txtDeviceName.Location = new System.Drawing.Point(108, 105);
+            this.txtDeviceName.Location = new System.Drawing.Point(154, 175);
+            this.txtDeviceName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDeviceName.Name = "txtDeviceName";
-            this.txtDeviceName.Size = new System.Drawing.Size(244, 23);
+            this.txtDeviceName.Size = new System.Drawing.Size(347, 31);
             this.txtDeviceName.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 149);
+            this.label4.Location = new System.Drawing.Point(24, 248);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 15);
+            this.label4.Size = new System.Drawing.Size(128, 25);
             this.label4.TabIndex = 5;
             this.label4.Text = "Serial Number:";
             // 
             // txtSerialNumber
             // 
             this.txtSerialNumber.BackColor = System.Drawing.Color.White;
-            this.txtSerialNumber.Location = new System.Drawing.Point(108, 146);
+            this.txtSerialNumber.Location = new System.Drawing.Point(154, 243);
+            this.txtSerialNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSerialNumber.Name = "txtSerialNumber";
-            this.txtSerialNumber.Size = new System.Drawing.Size(244, 23);
+            this.txtSerialNumber.Size = new System.Drawing.Size(347, 31);
             this.txtSerialNumber.TabIndex = 3;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 193);
+            this.label5.Location = new System.Drawing.Point(46, 322);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 15);
+            this.label5.Size = new System.Drawing.Size(106, 25);
             this.label5.TabIndex = 7;
             this.label5.Text = "Description:";
             // 
             // txtDescription
             // 
             this.txtDescription.BackColor = System.Drawing.Color.White;
-            this.txtDescription.Location = new System.Drawing.Point(108, 190);
+            this.txtDescription.Location = new System.Drawing.Point(154, 317);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(244, 66);
+            this.txtDescription.Size = new System.Drawing.Size(347, 107);
             this.txtDescription.TabIndex = 4;
             // 
             // chkLeasedOut
             // 
             this.chkLeasedOut.AutoSize = true;
-            this.chkLeasedOut.Location = new System.Drawing.Point(108, 262);
+            this.chkLeasedOut.Location = new System.Drawing.Point(154, 437);
+            this.chkLeasedOut.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkLeasedOut.Name = "chkLeasedOut";
-            this.chkLeasedOut.Size = new System.Drawing.Size(85, 19);
+            this.chkLeasedOut.Size = new System.Drawing.Size(127, 29);
             this.chkLeasedOut.TabIndex = 5;
             this.chkLeasedOut.Text = "Leased Out";
             this.chkLeasedOut.UseVisualStyleBackColor = true;
@@ -142,18 +152,20 @@ namespace InventoryScreen
             // chkActive
             // 
             this.chkActive.AutoSize = true;
-            this.chkActive.Location = new System.Drawing.Point(218, 262);
+            this.chkActive.Location = new System.Drawing.Point(311, 437);
+            this.chkActive.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkActive.Name = "chkActive";
-            this.chkActive.Size = new System.Drawing.Size(59, 19);
+            this.chkActive.Size = new System.Drawing.Size(86, 29);
             this.chkActive.TabIndex = 6;
             this.chkActive.Text = "Active";
             this.chkActive.UseVisualStyleBackColor = true;
             // 
             // btnAddNewDevice
             // 
-            this.btnAddNewDevice.Location = new System.Drawing.Point(77, 338);
+            this.btnAddNewDevice.Location = new System.Drawing.Point(110, 563);
+            this.btnAddNewDevice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddNewDevice.Name = "btnAddNewDevice";
-            this.btnAddNewDevice.Size = new System.Drawing.Size(116, 37);
+            this.btnAddNewDevice.Size = new System.Drawing.Size(166, 62);
             this.btnAddNewDevice.TabIndex = 11;
             this.btnAddNewDevice.Text = "Add A New Device";
             this.btnAddNewDevice.UseVisualStyleBackColor = true;
@@ -161,9 +173,10 @@ namespace InventoryScreen
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(123, 381);
+            this.btnSave.Location = new System.Drawing.Point(176, 635);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(70, 27);
+            this.btnSave.Size = new System.Drawing.Size(100, 45);
             this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -171,9 +184,10 @@ namespace InventoryScreen
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(199, 381);
+            this.btnCancel.Location = new System.Drawing.Point(284, 635);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(70, 27);
+            this.btnCancel.Size = new System.Drawing.Size(100, 45);
             this.btnCancel.TabIndex = 14;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -181,9 +195,10 @@ namespace InventoryScreen
             // 
             // btnFirst
             // 
-            this.btnFirst.Location = new System.Drawing.Point(117, 304);
+            this.btnFirst.Location = new System.Drawing.Point(167, 507);
+            this.btnFirst.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(36, 28);
+            this.btnFirst.Size = new System.Drawing.Size(51, 47);
             this.btnFirst.TabIndex = 7;
             this.btnFirst.Text = "|<";
             this.btnFirst.UseVisualStyleBackColor = true;
@@ -191,9 +206,10 @@ namespace InventoryScreen
             // 
             // btnPrevious
             // 
-            this.btnPrevious.Location = new System.Drawing.Point(159, 304);
+            this.btnPrevious.Location = new System.Drawing.Point(227, 507);
+            this.btnPrevious.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(36, 28);
+            this.btnPrevious.Size = new System.Drawing.Size(51, 47);
             this.btnPrevious.TabIndex = 8;
             this.btnPrevious.Text = "<";
             this.btnPrevious.UseVisualStyleBackColor = true;
@@ -201,9 +217,10 @@ namespace InventoryScreen
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(201, 304);
+            this.btnNext.Location = new System.Drawing.Point(287, 507);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(36, 28);
+            this.btnNext.Size = new System.Drawing.Size(51, 47);
             this.btnNext.TabIndex = 9;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
@@ -211,9 +228,10 @@ namespace InventoryScreen
             // 
             // btnLast
             // 
-            this.btnLast.Location = new System.Drawing.Point(243, 304);
+            this.btnLast.Location = new System.Drawing.Point(347, 507);
+            this.btnLast.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLast.Name = "btnLast";
-            this.btnLast.Size = new System.Drawing.Size(36, 28);
+            this.btnLast.Size = new System.Drawing.Size(51, 47);
             this.btnLast.TabIndex = 10;
             this.btnLast.Text = ">|";
             this.btnLast.UseVisualStyleBackColor = true;
@@ -221,9 +239,10 @@ namespace InventoryScreen
             // 
             // btnEditDevice
             // 
-            this.btnEditDevice.Location = new System.Drawing.Point(199, 338);
+            this.btnEditDevice.Location = new System.Drawing.Point(284, 563);
+            this.btnEditDevice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEditDevice.Name = "btnEditDevice";
-            this.btnEditDevice.Size = new System.Drawing.Size(116, 37);
+            this.btnEditDevice.Size = new System.Drawing.Size(166, 62);
             this.btnEditDevice.TabIndex = 12;
             this.btnEditDevice.Text = "Edit Device Info";
             this.btnEditDevice.UseVisualStyleBackColor = true;
@@ -231,9 +250,9 @@ namespace InventoryScreen
             // 
             // frmInventory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(405, 414);
+            this.ClientSize = new System.Drawing.Size(579, 690);
             this.Controls.Add(this.btnEditDevice);
             this.Controls.Add(this.btnLast);
             this.Controls.Add(this.btnNext);
@@ -253,6 +272,7 @@ namespace InventoryScreen
             this.Controls.Add(this.txtDeviceTag);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmInventory";
             this.Text = "Inventory";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmInventory_FormClosing);
