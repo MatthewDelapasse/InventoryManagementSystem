@@ -31,14 +31,7 @@ namespace InventoryScreen
         // Making the connection to the Database
         private void frmInventory_Load(object sender, EventArgs e)
         {
-            /* new connection string
-            Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\Users\\mdelapasse\\source\\repos\\MatthewDelapasse\\InventoryManagementSystem\\InventoryManagementDB.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True
-
-               old connection string
-            Data Source=.\\SQLEXPRESS; AttachDbFilename=" + Application.StartupPath + "InventoryManagementDB.mdf; Integrated Security=True; Connect Timeout=30; User Instance=True
-            */
-
-            //inventoryConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + Application.StartupPath + "InventoryManagementDB.mdf; Integrated Security=True; Connect Timeout=30; User Instance=True);
+            inventoryConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + Application.StartupPath + "InventoryManagementDB.mdf; Integrated Security=True; Connect Timeout=30; User Instance=True");
             inventoryConnection.Open();
 
             // Establishing the command object for the form
@@ -61,8 +54,8 @@ namespace InventoryScreen
             // Establish Currency Manager
             inventoryManager = (CurrencyManager)this.BindingContext[inventoryTable];
 
-            // Database Connection Succeeds
-            //MessageBox.Show("The connection has succeeded", "Connection success");
+            // This tells me if the connection succeeds
+            // MessageBox.Show("The connection has succeeded", "Connection success");
 
             // Setting the application to view mode
             StateSet("View");
@@ -81,8 +74,8 @@ namespace InventoryScreen
                 try
                 {
                     // Save the updated Inventory table
-                    SqlCommandBuilder inventoryAdapterCommand = new SqlCommandBuilder(inventoryAdapter);
-                    inventoryAdapter.Update(inventoryTable);
+                    //SqlCommandBuilder inventoryAdapterCommand = new SqlCommandBuilder(inventoryAdapter);
+                    //inventoryAdapter.Update(inventoryTable);
                 }
                 catch (Exception ex)
                 {
@@ -123,114 +116,43 @@ namespace InventoryScreen
 
         private void btnAddNewDevice_Click(object sender, EventArgs e)
         {
-            b = inventoryManager.Position;
-            StateSet("Add");
-            inventoryManager.AddNew();
+            // This tells me the click event is tied to the form
+            // MessageBox.Show("You have clicked the Add New Device button");
+
+            try
+            {
+                StateSet("Add");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error switching to Add mode", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-     
-            // It determines the state of the application and the save button acts according to the view the user is saving changes in
-            if (state.Equals("Add"))
+            // This tells me the click event is tied to the form
+            // MessageBox.Show("You have clicked the Save button.");
+            
+            // If data is missing from any of the text boxes then it will return back to the form what is missing
+            if (!ValidateData())
             {
-                // Checking to make sure something has been inserted in those fields when saving changes in add view
-                if (!ValidateData())
-                {
-                    return;
-                }
-                else
-                {
-                    try
-                    {
-                        inventoryManager.EndCurrentEdit();
-
-                        // Saving the new device to the database to then be reopened to show all devices in the inventory table
-                        string savedDeviceTag = txtDeviceTag.Text;
-                        string savedDeviceName = txtDeviceName.Text;
-
-                        SqlCommandBuilder saveInventoryAdapterCommand = new SqlCommandBuilder(inventoryAdapter);
-                        inventoryAdapter.Update(inventoryTable);
-
-                        inventoryConnection.Close();
-
-                        // Reconnectiong and Openning back up the database to show the newly added device
-                        //inventoryConnection = new SqlConnection("Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\Users\\mdelapasse\\source\\repos\\MatthewDelapasse\\InventoryManagementSystem\\InventoryManagementDB.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True");
-                        inventoryCommand = new SqlCommand("SELECT * FROM Inventory", inventoryConnection);
-                        inventoryAdapter = new SqlDataAdapter();
-                        inventoryAdapter.SelectCommand = inventoryCommand;
-                        inventoryTable = new DataTable();
-                        inventoryAdapter.Fill(inventoryTable);
-
-                        // Rebinding the controls to the table
-                        txtDeviceTag.DataBindings.Clear();
-                        txtDeviceName.DataBindings.Clear();
-                        txtSerialNumber.DataBindings.Clear();
-                        txtDescription.DataBindings.Clear();
-                        chkLeasedOut.DataBindings.Clear();
-                        chkActive.DataBindings.Clear();
-
-                        txtDeviceTag.DataBindings.Add("Text", inventoryTable, "DeviceTag");
-                        txtDeviceName.DataBindings.Add("Text", inventoryTable, "DeviceName");
-                        txtSerialNumber.DataBindings.Add("Text", inventoryTable, "SerialNumber");
-                        txtDescription.DataBindings.Add("Text", inventoryTable, "Description");
-                        chkLeasedOut.DataBindings.Add("Checked", inventoryTable, "isLeasedOut");
-                        chkActive.DataBindings.Add("Checked", inventoryTable, "isActive");
-
-                        inventoryManager = (CurrencyManager)this.BindingContext[inventoryTable];
-
-                        // System is finding the newly added device
-                        for (int i = 0; i < inventoryTable.Rows.Count; i++)
-                        {
-                            if (inventoryTable.Rows[i]["DeviceTag"].ToString().Equals(savedDeviceTag) && inventoryTable.Rows[i]["DeviceName"].ToString().Equals(savedDeviceName))
-                            {
-                                MessageBox.Show("Device has been added to the System.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                StateSet("View");
-                                break;
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error adding new Device.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+                return;
             }
             else
             {
-                // Checking to make sure something has been inserted in those fields when saving changes in edit view
-                if (!ValidateData())
+                try
                 {
-                    return;
+                    // This will tell me that all the information is givien
+                    MessageBox.Show("Device Saved", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    StateSet("View");
                 }
-                else
+                catch (Exception)
                 {
-                    try
-                    {
-                        inventoryManager.EndCurrentEdit();
-
-                        // Getting the device thats being edited
-                        string savedDeviceTag = txtDeviceTag.Text;
-                        string savedDeviceName = txtDeviceName.Text;
-                        int deviceRow;
-
-                        inventoryTable.DefaultView.Sort = "DeviceTag";
-                        deviceRow = inventoryTable.DefaultView.Find(savedDeviceTag);
-                        inventoryManager.Position = deviceRow;
-
-                        MessageBox.Show("Changes made to the Devices information have been saved.", "Saved Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        StateSet("View");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error saving record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    MessageBox.Show("Error saving Device.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
-            //inventoryManager.EndCurrentEdit();
-            StateSet("View");
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -346,4 +268,6 @@ namespace InventoryScreen
  *           Added Validation method for saving data
  *           Created the functionality for the Add New Device, Save, and Cancel button
  *           created the functionality for the Edit a Device Button
+ * 12/16/21 - Remade the database to not have single record in the database
+ *            Reworking the AddNewButton and Save Buttons
  */
