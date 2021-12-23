@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.ComponentModel;
 
 namespace InventoryScreen
 {
@@ -51,8 +50,11 @@ namespace InventoryScreen
             txtDeviceName.DataBindings.Add("Text", inventoryTable, "DeviceName");
             txtSerialNumber.DataBindings.Add("Text", inventoryTable, "SerialNumber");
             txtDescription.DataBindings.Add("Text", inventoryTable, "Description");
-            Convert.ToBoolean(chkLeasedOut.DataBindings.Add("Checked", inventoryTable, "isLeasedOut";
-            Convert.ToBoolean(chkActive.DataBindings.Add("Checked", inventoryTable, "isActive"));
+
+            MessageBox.Show(chkLeasedOut.Checked.ToString());
+
+            //chkLeasedOut.DataBindings.Add("Checked", inventoryTable, "isLeasedOut", true);
+            //chkActive.DataBindings.Add("Checked", inventoryTable, "isActive", true);
 
             // Establish Currency Manager
             inventoryManager = (CurrencyManager)this.BindingContext[inventoryTable];
@@ -77,8 +79,8 @@ namespace InventoryScreen
                 try
                 {
                     // Save the updated Inventory table
-                    //SqlCommandBuilder inventoryAdapterCommand = new SqlCommandBuilder(inventoryAdapter);
-                    //inventoryAdapter.Update(inventoryTable);
+                    SqlCommandBuilder inventoryAdapterCommand = new SqlCommandBuilder(inventoryAdapter);
+                    inventoryAdapter.Update(inventoryTable);
                 }
                 catch (Exception ex)
                 {
