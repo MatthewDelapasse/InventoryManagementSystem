@@ -50,11 +50,8 @@ namespace InventoryScreen
             txtDeviceName.DataBindings.Add("Text", inventoryTable, "DeviceName");
             txtSerialNumber.DataBindings.Add("Text", inventoryTable, "SerialNumber");
             txtDescription.DataBindings.Add("Text", inventoryTable, "Description");
-
-            MessageBox.Show(chkLeasedOut.Checked.ToString());
-
-            //chkLeasedOut.DataBindings.Add("Checked", inventoryTable, "isLeasedOut", true);
-            //chkActive.DataBindings.Add("Checked", inventoryTable, "isActive", true);
+            chkLeasedOut.DataBindings.Add("Checked", inventoryTable, "isLeasedOut", true);
+            chkActive.DataBindings.Add("Checked", inventoryTable, "isActive", true);
 
             // Establish Currency Manager
             inventoryManager = (CurrencyManager)this.BindingContext[inventoryTable];
