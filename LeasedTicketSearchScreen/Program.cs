@@ -17,7 +17,7 @@ namespace LeasedTicketSearchScreen
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LeasedTicketSearchScreen());
+            Application.Run(new frmLeasedTicket());
         }
     }
 }

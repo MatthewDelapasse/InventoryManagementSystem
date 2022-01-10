@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LeasedTicketSearchScreen
 {
-    public partial class Form1 : Form
+    public partial class frmLeasedTicket : Form
     {
-        public Form1()
+        public frmLeasedTicket()
         {
             InitializeComponent();
         }
