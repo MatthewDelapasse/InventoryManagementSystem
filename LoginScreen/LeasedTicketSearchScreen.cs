@@ -27,20 +27,17 @@ namespace LeasedTicketSearchScreen
             searchedLeasedTicketConnection.Open();
         }
 
-        // When a user closes this window they, system will close and get rid of the connection string
-        private void frmSearchLeasedTicket_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            searchedLeasedTicketConnection.Close();
-            searchedLeasedTicketConnection.Dispose();
-        }
-
         // This is when I have my screen back from Leased Ticket Screen
-        //private string CommandString(string dt, string sn, string p, string ot, string k)
-        //{
-        //    string commandStringText = "SELECT * FROM Ticket WHERE CategoryShort = 'LEASED'";
+        private string CommandString(string dt, string sn, string p, string ot, string k)
+        {
+            string commandStringText = "SELECT * FROM Ticket WHERE CategoryShort = 'LEASED'";
 
-        //    return commandStringText;
-        //}
+
+
+
+
+            return commandStringText;
+        }
     }
 }
 

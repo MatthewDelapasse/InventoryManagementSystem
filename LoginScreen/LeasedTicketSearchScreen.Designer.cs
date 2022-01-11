@@ -47,7 +47,7 @@ namespace LeasedTicketSearchScreen
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 26);
+            this.label1.Location = new System.Drawing.Point(31, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 25);
             this.label1.TabIndex = 0;
@@ -58,18 +58,18 @@ namespace LeasedTicketSearchScreen
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 67);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 25);
+            this.label2.Size = new System.Drawing.Size(119, 25);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Serial Number:";
+            this.label2.Text = "Date Created:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(71, 115);
+            this.label3.Location = new System.Drawing.Point(31, 116);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 25);
+            this.label3.Size = new System.Drawing.Size(100, 25);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Person:";
+            this.label3.Text = "Tickets For:";
             // 
             // label4
             // 
@@ -85,9 +85,9 @@ namespace LeasedTicketSearchScreen
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(373, 67);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 25);
+            this.label5.Size = new System.Drawing.Size(188, 25);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Keywords:";
+            this.label5.Text = "Description Keywords:";
             // 
             // txtDeviceTag
             // 
@@ -124,9 +124,10 @@ namespace LeasedTicketSearchScreen
             // txtKeywords
             // 
             this.txtKeywords.BackColor = System.Drawing.Color.White;
-            this.txtKeywords.Location = new System.Drawing.Point(472, 67);
+            this.txtKeywords.Location = new System.Drawing.Point(373, 95);
+            this.txtKeywords.Multiline = true;
             this.txtKeywords.Name = "txtKeywords";
-            this.txtKeywords.Size = new System.Drawing.Size(193, 31);
+            this.txtKeywords.Size = new System.Drawing.Size(292, 49);
             this.txtKeywords.TabIndex = 9;
             // 
             // dataGridView1
@@ -134,7 +135,7 @@ namespace LeasedTicketSearchScreen
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 165);
+            this.dataGridView1.Location = new System.Drawing.Point(18, 214);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 33;
@@ -143,7 +144,7 @@ namespace LeasedTicketSearchScreen
             // 
             // btnFindTickets
             // 
-            this.btnFindTickets.Location = new System.Drawing.Point(403, 110);
+            this.btnFindTickets.Location = new System.Drawing.Point(240, 164);
             this.btnFindTickets.Name = "btnFindTickets";
             this.btnFindTickets.Size = new System.Drawing.Size(226, 34);
             this.btnFindTickets.TabIndex = 11;
@@ -154,7 +155,7 @@ namespace LeasedTicketSearchScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(677, 502);
+            this.ClientSize = new System.Drawing.Size(680, 558);
             this.Controls.Add(this.btnFindTickets);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtKeywords);
@@ -169,7 +170,6 @@ namespace LeasedTicketSearchScreen
             this.Controls.Add(this.label1);
             this.Name = "frmSearchLeasedTicket";
             this.Text = "Leased Ticket Search";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSearchLeasedTicket_FormClosing);
             this.Load += new System.EventHandler(this.frmSearchLeasedTicket_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
