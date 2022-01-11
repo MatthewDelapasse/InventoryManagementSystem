@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LoginScreen;
 using InventoryScreen;
+using LeasedTicketScreen;
+using LeasedTicketSearchScreen;
 
 namespace MainMenuScreen
 {
@@ -32,41 +34,20 @@ namespace MainMenuScreen
         }
 
 
-        // this button points users to a screen that will allow them to add lease tickets to the system
-        private void btnAddLeaseTicket_Click(object sender, EventArgs e)
-        {
-            /*
-             * This button will shoot the user
-             * over to the Add A Lease Ticket Screen
-             */
-        }
-
         // this button points them to a screen that will allow the them to view lease tickets in the system
         private void btnViewLeaseTickets_Click(object sender, EventArgs e)
         {
-            /*
-             * This button will shoot the user
-             * over to the View Lease Tickets Screen
-             */
+            frmLeasedTicket leaseTicket = new frmLeasedTicket();
+            leaseTicket.Show();
         }
 
         // this button points them to a screen that will allow the them to search for lease tickets in the system
         private void btnSearchLeaseTicket_Click(object sender, EventArgs e)
         {
-            /*
-             * This button will shoot the user
-             * over to the Search for Lease Tickets Screen
-             */
+            frmSearchLeasedTicket searchLeaseTicket = new frmSearchLeasedTicket();
+            searchLeaseTicket.Show();
         }
 
-        // this button points them to a screen that will allow the them to add maintenance tickets to the system
-        private void btnAddMaintenanceTicket_Click(object sender, EventArgs e)
-        {
-            /*
-             * This button will shoot the user
-             * over to the Add A Maintenance Ticket Screen
-             */
-        }
 
         // this button points them to a screen that will allow the them to view maintenance tickets in the system
         private void btnViewMaintenanceTicket_Click(object sender, EventArgs e)
@@ -111,4 +92,5 @@ namespace MainMenuScreen
  *             Added the BtnAddNewUser_Click Event
  * 12/8/2021 - Making the Add New User Button invisible right to everyone because that will be a feature later down the line
  * 12/9/2021 - Changing the view of the Main Menu
+ * 1/11/2021 - Deleted the Add buttons off the Main Menu
  */

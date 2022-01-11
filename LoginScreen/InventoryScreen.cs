@@ -121,6 +121,8 @@ namespace InventoryScreen
             // This tells me the click event is tied to the form
             // MessageBox.Show("You have clicked the Add New Device button");
 
+            inventoryManager.EndCurrentEdit();
+
             // System tries to switch from View to Add
             try
             {
