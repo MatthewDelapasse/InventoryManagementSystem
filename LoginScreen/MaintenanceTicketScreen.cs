@@ -17,44 +17,44 @@ namespace MaintenanceTicketScreen
         {
             InitializeComponent();
         }
-        SqlConnection leasedTicketConnection;
-        SqlCommand leasedTicketCommand;
-        SqlDataAdapter leasedTicketAdapter;
-        DataTable leasedTicketTable;
-        DataView leasedTicketView;
-        CurrencyManager leasedTicketManager;
+        SqlConnection mainTicketConnection;
+        SqlCommand mainTicketCommand;
+        SqlDataAdapter mainTicketAdapter;
+        DataTable mainTicketTable;
+        DataView mainTicketView;
+        CurrencyManager mainTicketManager;
 
         string state;
         int b;
 
         // ------------------------------------------- Form Event Code ---------------------------------------
         // Making the connection to the Database
-        private void frmLeasedTicket_Load(object sender, EventArgs e)
+        private void frmMainTicket_Load(object sender, EventArgs e)
         {
-            leasedTicketConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + Application.StartupPath + "InventoryManagementDB.mdf; Integrated Security=True; Connect Timeout=30; User Instance=True");
-            leasedTicketConnection.Open();
+            mainTicketConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + Application.StartupPath + "InventoryManagementDB.mdf; Integrated Security=True; Connect Timeout=30; User Instance=True");
+            mainTicketConnection.Open();
 
             // Establishing the command object for the form
-            leasedTicketCommand = new SqlCommand("SELECT * FROM Tickets WHERE CategoryShort = 'MAIN';", leasedTicketConnection);
+            mainTicketCommand = new SqlCommand("SELECT * FROM Tickets WHERE CategoryShort = 'MAIN';", mainTicketConnection);
 
             // Establishing the data adapter/data table
-            leasedTicketAdapter = new SqlDataAdapter();
-            leasedTicketAdapter.SelectCommand = leasedTicketCommand;
-            leasedTicketTable = new DataTable();
-            leasedTicketAdapter.Fill(leasedTicketTable);
-            leasedTicketView = new DataView(leasedTicketTable);
+            mainTicketAdapter = new SqlDataAdapter();
+            mainTicketAdapter.SelectCommand = mainTicketCommand;
+            mainTicketTable = new DataTable();
+            mainTicketAdapter.Fill(mainTicketTable);
+            mainTicketView = new DataView(mainTicketTable);
 
             // Binding the Controls
-            txtDeviceTag.DataBindings.Add("Text", leasedTicketTable, "DeviceTag");
-            txtDateCreated.DataBindings.Add("Text", leasedTicketTable, "DateCreated");
-            txtCreatedBy.DataBindings.Add("Text", leasedTicketTable, "EmployeeName");
-            txtTicketFor.DataBindings.Add("Text", leasedTicketTable, "ForWho");
-            txtDescription.DataBindings.Add("Text", leasedTicketTable, "Description");
-            txtCategoryShort.DataBindings.Add("Text", leasedTicketTable, "CategoryShort");
-            chkClosed.DataBindings.Add("Checked", leasedTicketTable, "isClosed", true);
+            txtDeviceTag.DataBindings.Add("Text", mainTicketTable, "DeviceTag");
+            txtDateCreated.DataBindings.Add("Text", mainTicketTable, "DateCreated");
+            txtCreatedBy.DataBindings.Add("Text", mainTicketTable, "EmployeeName");
+            txtTicketFor.DataBindings.Add("Text", mainTicketTable, "ForWho");
+            txtDescription.DataBindings.Add("Text", mainTicketTable, "Description");
+            txtCategoryShort.DataBindings.Add("Text", mainTicketTable, "CategoryShort");
+            chkClosed.DataBindings.Add("Checked", mainTicketTable, "isClosed", true);
 
             // Establish Currency Manager
-            leasedTicketManager = (CurrencyManager)this.BindingContext[leasedTicketTable];
+            mainTicketManager = (CurrencyManager)this.BindingContext[mainTicketTable];
 
             // This tells me if the connection succeeds
             // MessageBox.Show("The connection has succeeded", "Connection success");
@@ -63,13 +63,13 @@ namespace MaintenanceTicketScreen
             StateSet("View");
         }
 
-        private void frmLeasedTicket_FormClosing(object sender, FormClosingEventArgs e)
+        private void frmMainTicket_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {
                 //saving changes to the Database
-                SqlCommandBuilder leaseTicketAdapterCommands = new SqlCommandBuilder(leasedTicketAdapter);
-                leasedTicketAdapter.Update(leasedTicketTable);
+                SqlCommandBuilder leaseTicketAdapterCommands = new SqlCommandBuilder(mainTicketAdapter);
+                mainTicketAdapter.Update(mainTicketTable);
             }
             catch (Exception ex)
             {
@@ -77,33 +77,33 @@ namespace MaintenanceTicketScreen
             }
 
             // Closing the connection
-            leasedTicketConnection.Close();
+            mainTicketConnection.Close();
 
             // Disposing the objects
-            leasedTicketCommand.Dispose();
-            leasedTicketAdapter.Dispose();
-            leasedTicketTable.Dispose();
+            mainTicketCommand.Dispose();
+            mainTicketAdapter.Dispose();
+            mainTicketTable.Dispose();
         }
         // ----------------------------------------End of Form Event Code ---------------------------------------
         // ------------------------------------------- Buton Code ---------------------------------------
         private void btnFirst_Click(object sender, EventArgs e)
         {
-            leasedTicketManager.Position = 0;
+            mainTicketManager.Position = 0;
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
-            leasedTicketManager.Position--;
+            mainTicketManager.Position--;
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            leasedTicketManager.Position++;
+            mainTicketManager.Position++;
         }
 
         private void btnLast_Click(object sender, EventArgs e)
         {
-            leasedTicketManager.Position = leasedTicketManager.Count - 1;
+            mainTicketManager.Position = mainTicketManager.Count - 1;
         }
 
         private void btnAddTicket_Click(object sender, EventArgs e)
@@ -114,10 +114,10 @@ namespace MaintenanceTicketScreen
             // System tries to switch from View to Add
             try
             {
-                b = leasedTicketManager.Position;
+                b = mainTicketManager.Position;
                 StateSet("Add");
-                leasedTicketManager.AddNew();
-                txtCategoryShort.Text = "LEAS";
+                mainTicketManager.AddNew();
+                txtCategoryShort.Text = "MAIN";
             }
             catch (Exception)
             {
@@ -138,7 +138,7 @@ namespace MaintenanceTicketScreen
             // This tells me the click event is tied to the form
             // MessageBox.Show("You have clicked the Save button.");
 
-            leasedTicketManager.EndCurrentEdit();
+            mainTicketManager.EndCurrentEdit();
 
             // If data is missing from any of the text boxes then it will return back to the form what is missing
             if (!ValidateData())
@@ -160,12 +160,12 @@ namespace MaintenanceTicketScreen
             //MessageBox.Show("I am canceling my changes.");
 
             // Cancels the edit in progress
-            leasedTicketManager.CancelCurrentEdit();
+            mainTicketManager.CancelCurrentEdit();
 
             // System checks to see if the System was in Add mode and if it is the system goes back to the bookmark
             if (state.Equals("Add"))
             {
-                leasedTicketManager.Position = b;
+                mainTicketManager.Position = b;
             }
 
             // System switches back to View Mode

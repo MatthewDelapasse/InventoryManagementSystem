@@ -11,6 +11,7 @@ using LoginScreen;
 using InventoryScreen;
 using LeasedTicketScreen;
 using LeasedTicketSearchScreen;
+using MaintenanceTicketScreen;
 
 namespace MainMenuScreen
 {
@@ -52,10 +53,8 @@ namespace MainMenuScreen
         // this button points them to a screen that will allow the them to view maintenance tickets in the system
         private void btnViewMaintenanceTicket_Click(object sender, EventArgs e)
         {
-            /*
-             * This button will shoot the user
-             * over to the View Maintenance Tickets Screen
-             */
+            frmMainTicket mainTicket = new frmMainTicket();
+            mainTicket.Show();
         }
 
         // this button points them to a screen that will allow the them to search for maintenance tickets in the system
@@ -75,13 +74,15 @@ namespace MainMenuScreen
         }
 
         // this button points managers to a screen that will allow them to add a new user to the system
-        private void btnAddNewUser_Click(object sender, EventArgs e)
-        {
-            /*
-             * This button will shoot the Manager
-             * over to the Add A New User Screen
-             */
-        }
+        // this functionality is a later feature we will work on after the second sprint
+
+        //private void btnAddNewUser_Click(object sender, EventArgs e)
+        //{
+        //    /*
+        //     * This button will shoot the Manager
+        //     * over to the Add A New User Screen
+        //     */
+        //}
     }
 }
 
@@ -93,4 +94,5 @@ namespace MainMenuScreen
  * 12/8/2021 - Making the Add New User Button invisible right to everyone because that will be a feature later down the line
  * 12/9/2021 - Changing the view of the Main Menu
  * 1/11/2021 - Deleted the Add buttons off the Main Menu
+ * 1/19/2022 - Added the ViewMaintenanceTicket Button event
  */

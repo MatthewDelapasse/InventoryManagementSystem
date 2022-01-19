@@ -121,7 +121,7 @@ namespace MainMenuScreen
             this.btnAddNewUser.TabIndex = 8;
             this.btnAddNewUser.Text = "Add A New User";
             this.btnAddNewUser.UseVisualStyleBackColor = true;
-            this.btnAddNewUser.Click += new System.EventHandler(this.btnAddNewUser_Click);
+            //this.btnAddNewUser.Click += new System.EventHandler(this.btnAddNewUser_Click);
             // 
             // frmMainMenu
             // 

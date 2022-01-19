@@ -141,6 +141,7 @@ namespace MaintenanceTicketScreen
             this.btnFirst.TabIndex = 12;
             this.btnFirst.Text = "|<";
             this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
             // btnPrevious
             // 
@@ -150,6 +151,7 @@ namespace MaintenanceTicketScreen
             this.btnPrevious.TabIndex = 13;
             this.btnPrevious.Text = "<";
             this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // btnNext
             // 
@@ -159,6 +161,7 @@ namespace MaintenanceTicketScreen
             this.btnNext.TabIndex = 14;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnLast
             // 
@@ -168,6 +171,7 @@ namespace MaintenanceTicketScreen
             this.btnLast.TabIndex = 15;
             this.btnLast.Text = ">|";
             this.btnLast.UseVisualStyleBackColor = true;
+            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
             // 
             // btnSave
             // 
@@ -177,6 +181,7 @@ namespace MaintenanceTicketScreen
             this.btnSave.TabIndex = 16;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -186,6 +191,7 @@ namespace MaintenanceTicketScreen
             this.btnCancel.TabIndex = 17;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnEditTicket
             // 
@@ -195,6 +201,7 @@ namespace MaintenanceTicketScreen
             this.btnEditTicket.TabIndex = 18;
             this.btnEditTicket.Text = "Edit Ticket";
             this.btnEditTicket.UseVisualStyleBackColor = true;
+            this.btnEditTicket.Click += new System.EventHandler(this.btnEditTicket_Click);
             // 
             // btnAddTicket
             // 
@@ -204,6 +211,7 @@ namespace MaintenanceTicketScreen
             this.btnAddTicket.TabIndex = 19;
             this.btnAddTicket.Text = "Add a Ticket";
             this.btnAddTicket.UseVisualStyleBackColor = true;
+            this.btnAddTicket.Click += new System.EventHandler(this.btnAddTicket_Click);
             // 
             // txtDeviceTag
             // 
@@ -265,6 +273,8 @@ namespace MaintenanceTicketScreen
             this.Controls.Add(this.label1);
             this.Name = "frmMainTicket";
             this.Text = "Maintenance Ticket";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMainTicket_FormClosing);
+            this.Load += new System.EventHandler(this.frmMainTicket_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
