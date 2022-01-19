@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeasedTicketScreen", "Lease
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeasedTicketSearchScreen", "LeasedTicketSearchScreen\LeasedTicketSearchScreen.csproj", "{BAD6F7CF-60F7-4955-AFBA-F9D320D7AED3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceTicketScreen", "MaintenanceTicketScreen\MaintenanceTicketScreen.csproj", "{FE790F90-1D62-40A3-AAD4-B66F6FF1FE60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaintenanceTicketScreen", "MaintenanceTicketScreen\MaintenanceTicketScreen.csproj", "{FE790F90-1D62-40A3-AAD4-B66F6FF1FE60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchMaintenanceTicket", "SearchMaintenanceTicket\SearchMaintenanceTicket.csproj", "{2165A9ED-0D94-470E-ABE6-1021484894A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{FE790F90-1D62-40A3-AAD4-B66F6FF1FE60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE790F90-1D62-40A3-AAD4-B66F6FF1FE60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE790F90-1D62-40A3-AAD4-B66F6FF1FE60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2165A9ED-0D94-470E-ABE6-1021484894A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2165A9ED-0D94-470E-ABE6-1021484894A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2165A9ED-0D94-470E-ABE6-1021484894A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2165A9ED-0D94-470E-ABE6-1021484894A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

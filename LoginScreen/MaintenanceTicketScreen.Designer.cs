@@ -225,8 +225,10 @@ namespace MaintenanceTicketScreen
             // 
             this.txtCategoryShort.Location = new System.Drawing.Point(465, 12);
             this.txtCategoryShort.Name = "txtCategoryShort";
+            this.txtCategoryShort.ReadOnly = true;
             this.txtCategoryShort.Size = new System.Drawing.Size(43, 31);
             this.txtCategoryShort.TabIndex = 21;
+            this.txtCategoryShort.Visible = false;
             // 
             // txtCreatedBy
             // 
