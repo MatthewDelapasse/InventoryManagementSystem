@@ -49,6 +49,9 @@ namespace LeasedTicketScreen
             this.btnEditTicket = new System.Windows.Forms.Button();
             this.btnAddTicket = new System.Windows.Forms.Button();
             this.txtDeviceTag = new System.Windows.Forms.TextBox();
+            this.txtCreatedBy = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtCategoryShort = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -73,7 +76,7 @@ namespace LeasedTicketScreen
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 194);
+            this.label3.Location = new System.Drawing.Point(55, 190);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(119, 25);
             this.label3.TabIndex = 2;
@@ -82,7 +85,7 @@ namespace LeasedTicketScreen
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(82, 248);
+            this.label4.Location = new System.Drawing.Point(82, 280);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 25);
             this.label4.TabIndex = 3;
@@ -100,7 +103,7 @@ namespace LeasedTicketScreen
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(68, 304);
+            this.label6.Location = new System.Drawing.Point(68, 336);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(106, 25);
             this.label6.TabIndex = 5;
@@ -117,7 +120,7 @@ namespace LeasedTicketScreen
             // txtDateCreated
             // 
             this.txtDateCreated.BackColor = System.Drawing.Color.White;
-            this.txtDateCreated.Location = new System.Drawing.Point(188, 191);
+            this.txtDateCreated.Location = new System.Drawing.Point(188, 187);
             this.txtDateCreated.Name = "txtDateCreated";
             this.txtDateCreated.Size = new System.Drawing.Size(121, 31);
             this.txtDateCreated.TabIndex = 8;
@@ -125,7 +128,7 @@ namespace LeasedTicketScreen
             // txtTicketFor
             // 
             this.txtTicketFor.BackColor = System.Drawing.Color.White;
-            this.txtTicketFor.Location = new System.Drawing.Point(188, 245);
+            this.txtTicketFor.Location = new System.Drawing.Point(188, 277);
             this.txtTicketFor.Name = "txtTicketFor";
             this.txtTicketFor.Size = new System.Drawing.Size(197, 31);
             this.txtTicketFor.TabIndex = 9;
@@ -133,7 +136,7 @@ namespace LeasedTicketScreen
             // txtDescription
             // 
             this.txtDescription.BackColor = System.Drawing.Color.White;
-            this.txtDescription.Location = new System.Drawing.Point(188, 301);
+            this.txtDescription.Location = new System.Drawing.Point(188, 333);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(315, 89);
@@ -142,7 +145,7 @@ namespace LeasedTicketScreen
             // chkClosed
             // 
             this.chkClosed.AutoSize = true;
-            this.chkClosed.Location = new System.Drawing.Point(82, 405);
+            this.chkClosed.Location = new System.Drawing.Point(82, 437);
             this.chkClosed.Name = "chkClosed";
             this.chkClosed.Size = new System.Drawing.Size(142, 29);
             this.chkClosed.TabIndex = 11;
@@ -151,7 +154,7 @@ namespace LeasedTicketScreen
             // 
             // btnFirst
             // 
-            this.btnFirst.Location = new System.Drawing.Point(95, 457);
+            this.btnFirst.Location = new System.Drawing.Point(95, 489);
             this.btnFirst.Name = "btnFirst";
             this.btnFirst.Size = new System.Drawing.Size(63, 34);
             this.btnFirst.TabIndex = 12;
@@ -161,7 +164,7 @@ namespace LeasedTicketScreen
             // 
             // btnPrevious
             // 
-            this.btnPrevious.Location = new System.Drawing.Point(174, 457);
+            this.btnPrevious.Location = new System.Drawing.Point(174, 489);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(63, 34);
             this.btnPrevious.TabIndex = 13;
@@ -171,7 +174,7 @@ namespace LeasedTicketScreen
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(246, 457);
+            this.btnNext.Location = new System.Drawing.Point(246, 489);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(63, 34);
             this.btnNext.TabIndex = 14;
@@ -181,7 +184,7 @@ namespace LeasedTicketScreen
             // 
             // btnLast
             // 
-            this.btnLast.Location = new System.Drawing.Point(332, 457);
+            this.btnLast.Location = new System.Drawing.Point(332, 489);
             this.btnLast.Name = "btnLast";
             this.btnLast.Size = new System.Drawing.Size(63, 34);
             this.btnLast.TabIndex = 15;
@@ -191,7 +194,7 @@ namespace LeasedTicketScreen
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(125, 543);
+            this.btnSave.Location = new System.Drawing.Point(125, 573);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(112, 34);
             this.btnSave.TabIndex = 16;
@@ -201,7 +204,7 @@ namespace LeasedTicketScreen
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(246, 543);
+            this.btnCancel.Location = new System.Drawing.Point(246, 573);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(112, 34);
             this.btnCancel.TabIndex = 17;
@@ -211,7 +214,7 @@ namespace LeasedTicketScreen
             // 
             // btnEditTicket
             // 
-            this.btnEditTicket.Location = new System.Drawing.Point(118, 503);
+            this.btnEditTicket.Location = new System.Drawing.Point(118, 535);
             this.btnEditTicket.Name = "btnEditTicket";
             this.btnEditTicket.Size = new System.Drawing.Size(119, 34);
             this.btnEditTicket.TabIndex = 18;
@@ -221,7 +224,7 @@ namespace LeasedTicketScreen
             // 
             // btnAddTicket
             // 
-            this.btnAddTicket.Location = new System.Drawing.Point(246, 503);
+            this.btnAddTicket.Location = new System.Drawing.Point(246, 535);
             this.btnAddTicket.Name = "btnAddTicket";
             this.btnAddTicket.Size = new System.Drawing.Size(124, 34);
             this.btnAddTicket.TabIndex = 19;
@@ -237,11 +240,40 @@ namespace LeasedTicketScreen
             this.txtDeviceTag.Size = new System.Drawing.Size(121, 31);
             this.txtDeviceTag.TabIndex = 20;
             // 
+            // txtCreatedBy
+            // 
+            this.txtCreatedBy.BackColor = System.Drawing.Color.White;
+            this.txtCreatedBy.Location = new System.Drawing.Point(188, 230);
+            this.txtCreatedBy.Name = "txtCreatedBy";
+            this.txtCreatedBy.Size = new System.Drawing.Size(197, 31);
+            this.txtCreatedBy.TabIndex = 22;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(73, 233);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(101, 25);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Created By:";
+            // 
+            // txtCategoryShort
+            // 
+            this.txtCategoryShort.Location = new System.Drawing.Point(474, 12);
+            this.txtCategoryShort.Name = "txtCategoryShort";
+            this.txtCategoryShort.Size = new System.Drawing.Size(45, 31);
+            this.txtCategoryShort.TabIndex = 23;
+            this.txtCategoryShort.Text = "LEAS";
+            this.txtCategoryShort.Visible = false;
+            // 
             // frmLeasedTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 602);
+            this.ClientSize = new System.Drawing.Size(531, 613);
+            this.Controls.Add(this.txtCategoryShort);
+            this.Controls.Add(this.txtCreatedBy);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.txtDeviceTag);
             this.Controls.Add(this.btnAddTicket);
             this.Controls.Add(this.btnEditTicket);
@@ -293,6 +325,9 @@ namespace LeasedTicketScreen
         private System.Windows.Forms.Button btnEditTicket;
         private System.Windows.Forms.Button btnAddTicket;
         private System.Windows.Forms.TextBox txtDeviceTag;
+        private System.Windows.Forms.TextBox txtCreatedBy;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtCategoryShort;
     }
 }
 

@@ -49,8 +49,10 @@ namespace LeasedTicketScreen
             txtDeviceTag.DataBindings.Add("Text", leasedTicketTable, "DeviceTag");
             txtOtherItems.DataBindings.Add("Text", leasedTicketTable, "OtherItems");
             txtDateCreated.DataBindings.Add("Text", leasedTicketTable, "DateCreated");
+            txtCreatedBy.DataBindings.Add("Text", leasedTicketTable, "EmployeeName");
             txtTicketFor.DataBindings.Add("Text", leasedTicketTable, "ForWho");
             txtDescription.DataBindings.Add("Text", leasedTicketTable, "Description");
+            txtCategoryShort.DataBindings.Add("Text", leasedTicketTable, "CategoryShort");
             chkClosed.DataBindings.Add("Checked", leasedTicketTable, "isClosed", true);
 
             // Establish Currency Manager
@@ -65,6 +67,17 @@ namespace LeasedTicketScreen
 
         private void frmLeasedTicket_FormClosing(object sender, FormClosingEventArgs e)
         {
+            try
+            {
+                //saving changes to the Database
+                SqlCommandBuilder leaseTicketAdapterCommands = new SqlCommandBuilder(leasedTicketAdapter);
+                leasedTicketAdapter.Update(leasedTicketTable);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving ticket: \r\n" + ex.Message, "Error" ,MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             // Closing the connection
             leasedTicketConnection.Close();
 
@@ -106,6 +119,7 @@ namespace LeasedTicketScreen
                 b = leasedTicketManager.Position;
                 StateSet("Add");
                 leasedTicketManager.AddNew();
+                txtCategoryShort.Text = "LEAS";
             }
             catch (Exception)
             {
@@ -127,7 +141,7 @@ namespace LeasedTicketScreen
             // MessageBox.Show("You have clicked the Save button.");
 
             leasedTicketManager.EndCurrentEdit();
-
+            
             // If data is missing from any of the text boxes then it will return back to the form what is missing
             if (!ValidateData())
             {
@@ -135,16 +149,9 @@ namespace LeasedTicketScreen
             }
             else
             {
-                try
-                {
-                    // This will tell me that all the information is givien
-                    MessageBox.Show("Device Saved", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    StateSet("View");
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Error saving Device.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                // This will tell me that all the information is givien
+                MessageBox.Show("Ticket Saved", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                StateSet("View");
             }
 
         }
@@ -229,6 +236,13 @@ namespace LeasedTicketScreen
             {
                 message = "Ticket needs the date it was created.";
                 txtDateCreated.Focus();
+                good = false;
+            }
+
+            if (txtCreatedBy.Text.ToString().Equals(""))
+            {
+                message = "System needs whom made this ticket.";
+                txtCreatedBy.Focus();
                 good = false;
             }
 

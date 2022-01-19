@@ -30,7 +30,6 @@ namespace LeasedTicketScreen
         SqlDataAdapter deviceAdapter;
         DataTable deviceTable;
         DataView deviceView;
-        CurrencyManager deviceManager;
         SqlDataReader deviceReader;
 
         string state;
@@ -146,12 +145,12 @@ namespace LeasedTicketScreen
                 try
                 {
                     // This will tell me that all the information is givien
-                    MessageBox.Show("Device Saved", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Ticket Saved", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     StateSet("View");
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Error saving Device.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error saving Ticket.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -186,10 +185,10 @@ namespace LeasedTicketScreen
                     btnPrevious.Enabled = true;
                     btnNext.Enabled = true;
                     btnLast.Enabled = true;
-                    //btnEditDevice.Enabled = true;
-                    //btnAddNewDevice.Enabled = true;
-                    //btnSave.Enabled = false;
-                    //btnCancel.Enabled = false;
+                    btnEditTicket.Enabled = true;
+                    btnAddTicket.Enabled = true;
+                    btnSave.Enabled = false;
+                    btnCancel.Enabled = false;
                     cboDeviceTag.BackColor = Color.Blue;
                     cboDeviceTag.ForeColor = Color.White;
                     cboDeviceTag.AllowDrop = false;
@@ -204,10 +203,10 @@ namespace LeasedTicketScreen
                     btnPrevious.Enabled = false;
                     btnNext.Enabled = false;
                     btnLast.Enabled = false;
-                    //btnSave.Enabled = true;
-                    //btnCancel.Enabled = true;
-                    //btnEditDevice.Enabled = false;
-                    //btnAddNewDevice.Enabled = false;
+                    btnSave.Enabled = true;
+                    btnCancel.Enabled = true;
+                    btnEditTicket.Enabled = false;
+                    btnAddTicket.Enabled = false;
                     cboDeviceTag.BackColor = Color.Red;
                     cboDeviceTag.ForeColor = Color.White;
                     cboDeviceTag.AllowDrop = true;

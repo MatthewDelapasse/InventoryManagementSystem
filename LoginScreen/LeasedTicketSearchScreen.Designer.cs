@@ -35,13 +35,15 @@ namespace LeasedTicketSearchScreen
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDeviceTag = new System.Windows.Forms.TextBox();
-            this.txtSerialNumber = new System.Windows.Forms.TextBox();
-            this.txtPerson = new System.Windows.Forms.TextBox();
+            this.txtDateCreated = new System.Windows.Forms.TextBox();
+            this.txtTicketsFor = new System.Windows.Forms.TextBox();
             this.txtOtherItems = new System.Windows.Forms.TextBox();
             this.txtKeywords = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grdResults = new System.Windows.Forms.DataGridView();
             this.btnFindTickets = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.lblTickets = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.grdResults)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -97,21 +99,21 @@ namespace LeasedTicketSearchScreen
             this.txtDeviceTag.Size = new System.Drawing.Size(204, 31);
             this.txtDeviceTag.TabIndex = 5;
             // 
-            // txtSerialNumber
+            // txtDateCreated
             // 
-            this.txtSerialNumber.BackColor = System.Drawing.Color.White;
-            this.txtSerialNumber.Location = new System.Drawing.Point(146, 67);
-            this.txtSerialNumber.Name = "txtSerialNumber";
-            this.txtSerialNumber.Size = new System.Drawing.Size(204, 31);
-            this.txtSerialNumber.TabIndex = 6;
+            this.txtDateCreated.BackColor = System.Drawing.Color.White;
+            this.txtDateCreated.Location = new System.Drawing.Point(146, 67);
+            this.txtDateCreated.Name = "txtDateCreated";
+            this.txtDateCreated.Size = new System.Drawing.Size(204, 31);
+            this.txtDateCreated.TabIndex = 6;
             // 
-            // txtPerson
+            // txtTicketsFor
             // 
-            this.txtPerson.BackColor = System.Drawing.Color.White;
-            this.txtPerson.Location = new System.Drawing.Point(146, 113);
-            this.txtPerson.Name = "txtPerson";
-            this.txtPerson.Size = new System.Drawing.Size(204, 31);
-            this.txtPerson.TabIndex = 7;
+            this.txtTicketsFor.BackColor = System.Drawing.Color.White;
+            this.txtTicketsFor.Location = new System.Drawing.Point(146, 113);
+            this.txtTicketsFor.Name = "txtTicketsFor";
+            this.txtTicketsFor.Size = new System.Drawing.Size(204, 31);
+            this.txtTicketsFor.TabIndex = 7;
             // 
             // txtOtherItems
             // 
@@ -130,38 +132,62 @@ namespace LeasedTicketSearchScreen
             this.txtKeywords.Size = new System.Drawing.Size(292, 49);
             this.txtKeywords.TabIndex = 9;
             // 
-            // dataGridView1
+            // grdResults
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(18, 214);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(647, 325);
-            this.dataGridView1.TabIndex = 10;
+            this.grdResults.AllowUserToAddRows = false;
+            this.grdResults.AllowUserToDeleteRows = false;
+            this.grdResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdResults.Location = new System.Drawing.Point(18, 214);
+            this.grdResults.Name = "grdResults";
+            this.grdResults.ReadOnly = true;
+            this.grdResults.RowHeadersWidth = 62;
+            this.grdResults.RowTemplate.Height = 33;
+            this.grdResults.Size = new System.Drawing.Size(647, 325);
+            this.grdResults.TabIndex = 10;
             // 
             // btnFindTickets
             // 
-            this.btnFindTickets.Location = new System.Drawing.Point(240, 164);
+            this.btnFindTickets.Location = new System.Drawing.Point(77, 165);
             this.btnFindTickets.Name = "btnFindTickets";
-            this.btnFindTickets.Size = new System.Drawing.Size(226, 34);
+            this.btnFindTickets.Size = new System.Drawing.Size(233, 34);
             this.btnFindTickets.TabIndex = 11;
             this.btnFindTickets.Text = "Find Ticket(s)";
             this.btnFindTickets.UseVisualStyleBackColor = true;
+            this.btnFindTickets.Click += new System.EventHandler(this.btnFindTickets_Click);
+            // 
+            // lblTickets
+            // 
+            this.lblTickets.AutoSize = true;
+            this.lblTickets.BackColor = System.Drawing.Color.Black;
+            this.lblTickets.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTickets.ForeColor = System.Drawing.Color.White;
+            this.lblTickets.Location = new System.Drawing.Point(534, 167);
+            this.lblTickets.Name = "lblTickets";
+            this.lblTickets.Size = new System.Drawing.Size(0, 32);
+            this.lblTickets.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(393, 173);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(125, 25);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Tickets Found:";
             // 
             // frmSearchLeasedTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(680, 558);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lblTickets);
             this.Controls.Add(this.btnFindTickets);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.grdResults);
             this.Controls.Add(this.txtKeywords);
             this.Controls.Add(this.txtOtherItems);
-            this.Controls.Add(this.txtPerson);
-            this.Controls.Add(this.txtSerialNumber);
+            this.Controls.Add(this.txtTicketsFor);
+            this.Controls.Add(this.txtDateCreated);
             this.Controls.Add(this.txtDeviceTag);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -170,8 +196,9 @@ namespace LeasedTicketSearchScreen
             this.Controls.Add(this.label1);
             this.Name = "frmSearchLeasedTicket";
             this.Text = "Leased Ticket Search";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSearchLeasedTicket_FormClosing);
             this.Load += new System.EventHandler(this.frmSearchLeasedTicket_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdResults)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,12 +212,14 @@ namespace LeasedTicketSearchScreen
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtDeviceTag;
-        private System.Windows.Forms.TextBox txtSerialNumber;
-        private System.Windows.Forms.TextBox txtPerson;
+        private System.Windows.Forms.TextBox txtDateCreated;
+        private System.Windows.Forms.TextBox txtTicketsFor;
         private System.Windows.Forms.TextBox txtOtherItems;
         private System.Windows.Forms.TextBox txtKeywords;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grdResults;
         private System.Windows.Forms.Button btnFindTickets;
+        private System.Windows.Forms.Label lblTickets;
+        private System.Windows.Forms.Label label7;
     }
 }
 

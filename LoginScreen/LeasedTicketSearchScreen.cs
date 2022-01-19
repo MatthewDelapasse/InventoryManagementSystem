@@ -27,14 +27,76 @@ namespace LeasedTicketSearchScreen
             searchedLeasedTicketConnection.Open();
         }
 
-        // This is when I have my screen back from Leased Ticket Screen
-        private string CommandString(string dt, string sn, string p, string ot, string k)
+        private void frmSearchLeasedTicket_FormClosing(object sender, FormClosingEventArgs e)
         {
-            string commandStringText = "SELECT * FROM Ticket WHERE CategoryShort = 'LEASED'";
+            searchedLeasedTicketConnection.Close();
+            searchedLeasedTicketConnection.Dispose();
+        }
 
+        // This button will utilize the CommandString function to produce a list of Tickets that are leased and other criteria
+        private void btnFindTickets_Click(object sender, EventArgs e)
+        {
+            SqlCommand searchedLeasedTicketCommand = null;
+            SqlDataAdapter searchedLeasedTicketAdapter = new SqlDataAdapter();
+            DataTable searchedLeasedTicketTable = new DataTable();
 
+            try
+            {
+                // establishing command object and data adapter
+                searchedLeasedTicketCommand = new SqlCommand(CommandString(), searchedLeasedTicketConnection);
+                searchedLeasedTicketAdapter.SelectCommand = searchedLeasedTicketCommand;
+                searchedLeasedTicketAdapter.Fill(searchedLeasedTicketTable);
 
+                // Bind the Grid View to the data table
+                grdResults.DataSource = searchedLeasedTicketTable;
+                lblTickets.Text = searchedLeasedTicketTable.Rows.Count.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in Getting Tickets", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
+            searchedLeasedTicketCommand.Dispose();
+            searchedLeasedTicketAdapter.Dispose();
+            searchedLeasedTicketTable.Dispose();
+        }
+
+        private void btnClearView_Click(object sender, EventArgs e)
+        {
+            grdResults.Rows.Clear();
+            grdResults.Refresh();
+            lblTickets.Text = "";
+        }
+
+        // This is when I have my screen back from Leased Ticket Screen
+        private string CommandString()
+        {
+            string commandStringText = "SELECT * FROM Tickets WHERE CategoryShort = 'LEAS'";
+
+            if (txtDeviceTag.Text.Length > 0)
+            {
+                commandStringText += " AND DeviceTag = '" + txtDeviceTag.Text.ToString() + "'";
+            }
+
+            if (txtDateCreated.Text.Length > 0)
+            {
+                commandStringText += " AND DateCreated = '" + txtDateCreated.Text.ToString() + "'";
+            }
+
+            if (txtTicketsFor.Text.Length > 0)
+            {
+                commandStringText += " AND ForWho = '" + txtTicketsFor.Text.ToString() + "'";
+            }
+
+            if (txtOtherItems.Text.Length > 0)
+            {
+                commandStringText += " AND OtherItems LIKE '%" + txtOtherItems.Text.ToString() + "%'";
+            }
+
+            if (txtKeywords.Text.Length > 0)
+            {
+                commandStringText += " AND Description LIKE '%" + txtKeywords.Text.ToString() + "&'";
+            }
 
             return commandStringText;
         }
@@ -45,4 +107,7 @@ namespace LeasedTicketSearchScreen
  * 1/10/2022 - Established GUI
  *             Made the Form Load and Closing Events
  *             Finished the GUI
+ * 1/11/2022 - Adding Button Functionality
+ *             Altering Interface
+ *             DONE
  */
