@@ -61,13 +61,6 @@ namespace SearchMaintenanceTicket
             searchMainTicketTable.Dispose();
         }
 
-        private void btnClearView_Click(object sender, EventArgs e)
-        {
-            grdResults.Rows.Clear();
-            grdResults.Refresh();
-            lblTickets.Text = "";
-        }
-
         // This is when I have my screen back from Leased Ticket Screen
         private string CommandString()
         {
@@ -90,12 +83,12 @@ namespace SearchMaintenanceTicket
 
             if (txtCreatedBy.Text.Length > 0)
             {
-                commandStringText += " AND OtherItems LIKE '%" + txtCreatedBy.Text.ToString() + "%'";
+                commandStringText += " AND EmployeeName = '" + txtCreatedBy.Text.ToString() + "'";
             }
 
             if (txtKeywords.Text.Length > 0)
             {
-                commandStringText += " AND Description LIKE '%" + txtKeywords.Text.ToString() + "&'";
+                commandStringText += " AND Description LIKE '%" + txtKeywords.Text.ToString() + "%'";
             }
 
             return commandStringText;

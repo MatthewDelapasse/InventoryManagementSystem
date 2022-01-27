@@ -47,9 +47,9 @@ namespace MaintenanceTicketScreen
             this.btnEditTicket = new System.Windows.Forms.Button();
             this.btnAddTicket = new System.Windows.Forms.Button();
             this.txtDeviceTag = new System.Windows.Forms.TextBox();
-            this.txtCategoryShort = new System.Windows.Forms.TextBox();
             this.txtCreatedBy = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.lblCategoryShort = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -104,7 +104,7 @@ namespace MaintenanceTicketScreen
             this.txtDateCreated.Location = new System.Drawing.Point(188, 142);
             this.txtDateCreated.Name = "txtDateCreated";
             this.txtDateCreated.Size = new System.Drawing.Size(121, 31);
-            this.txtDateCreated.TabIndex = 8;
+            this.txtDateCreated.TabIndex = 2;
             // 
             // txtTicketFor
             // 
@@ -112,7 +112,7 @@ namespace MaintenanceTicketScreen
             this.txtTicketFor.Location = new System.Drawing.Point(188, 242);
             this.txtTicketFor.Name = "txtTicketFor";
             this.txtTicketFor.Size = new System.Drawing.Size(197, 31);
-            this.txtTicketFor.TabIndex = 9;
+            this.txtTicketFor.TabIndex = 4;
             // 
             // txtDescription
             // 
@@ -121,7 +121,7 @@ namespace MaintenanceTicketScreen
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(315, 89);
-            this.txtDescription.TabIndex = 10;
+            this.txtDescription.TabIndex = 5;
             // 
             // chkClosed
             // 
@@ -129,7 +129,7 @@ namespace MaintenanceTicketScreen
             this.chkClosed.Location = new System.Drawing.Point(82, 402);
             this.chkClosed.Name = "chkClosed";
             this.chkClosed.Size = new System.Drawing.Size(142, 29);
-            this.chkClosed.TabIndex = 11;
+            this.chkClosed.TabIndex = 6;
             this.chkClosed.Text = "Ticket Closed";
             this.chkClosed.UseVisualStyleBackColor = true;
             // 
@@ -138,7 +138,7 @@ namespace MaintenanceTicketScreen
             this.btnFirst.Location = new System.Drawing.Point(95, 454);
             this.btnFirst.Name = "btnFirst";
             this.btnFirst.Size = new System.Drawing.Size(63, 34);
-            this.btnFirst.TabIndex = 12;
+            this.btnFirst.TabIndex = 11;
             this.btnFirst.Text = "|<";
             this.btnFirst.UseVisualStyleBackColor = true;
             this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
@@ -148,7 +148,7 @@ namespace MaintenanceTicketScreen
             this.btnPrevious.Location = new System.Drawing.Point(174, 454);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(63, 34);
-            this.btnPrevious.TabIndex = 13;
+            this.btnPrevious.TabIndex = 12;
             this.btnPrevious.Text = "<";
             this.btnPrevious.UseVisualStyleBackColor = true;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
@@ -158,7 +158,7 @@ namespace MaintenanceTicketScreen
             this.btnNext.Location = new System.Drawing.Point(246, 454);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(63, 34);
-            this.btnNext.TabIndex = 14;
+            this.btnNext.TabIndex = 13;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -168,7 +168,7 @@ namespace MaintenanceTicketScreen
             this.btnLast.Location = new System.Drawing.Point(332, 454);
             this.btnLast.Name = "btnLast";
             this.btnLast.Size = new System.Drawing.Size(63, 34);
-            this.btnLast.TabIndex = 15;
+            this.btnLast.TabIndex = 14;
             this.btnLast.Text = ">|";
             this.btnLast.UseVisualStyleBackColor = true;
             this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
@@ -178,7 +178,7 @@ namespace MaintenanceTicketScreen
             this.btnSave.Location = new System.Drawing.Point(125, 540);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(112, 34);
-            this.btnSave.TabIndex = 16;
+            this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -188,7 +188,7 @@ namespace MaintenanceTicketScreen
             this.btnCancel.Location = new System.Drawing.Point(246, 540);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(112, 34);
-            this.btnCancel.TabIndex = 17;
+            this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -198,7 +198,7 @@ namespace MaintenanceTicketScreen
             this.btnEditTicket.Location = new System.Drawing.Point(118, 500);
             this.btnEditTicket.Name = "btnEditTicket";
             this.btnEditTicket.Size = new System.Drawing.Size(119, 34);
-            this.btnEditTicket.TabIndex = 18;
+            this.btnEditTicket.TabIndex = 7;
             this.btnEditTicket.Text = "Edit Ticket";
             this.btnEditTicket.UseVisualStyleBackColor = true;
             this.btnEditTicket.Click += new System.EventHandler(this.btnEditTicket_Click);
@@ -208,7 +208,7 @@ namespace MaintenanceTicketScreen
             this.btnAddTicket.Location = new System.Drawing.Point(246, 500);
             this.btnAddTicket.Name = "btnAddTicket";
             this.btnAddTicket.Size = new System.Drawing.Size(124, 34);
-            this.btnAddTicket.TabIndex = 19;
+            this.btnAddTicket.TabIndex = 8;
             this.btnAddTicket.Text = "Add a Ticket";
             this.btnAddTicket.UseVisualStyleBackColor = true;
             this.btnAddTicket.Click += new System.EventHandler(this.btnAddTicket_Click);
@@ -219,16 +219,7 @@ namespace MaintenanceTicketScreen
             this.txtDeviceTag.Location = new System.Drawing.Point(188, 91);
             this.txtDeviceTag.Name = "txtDeviceTag";
             this.txtDeviceTag.Size = new System.Drawing.Size(121, 31);
-            this.txtDeviceTag.TabIndex = 20;
-            // 
-            // txtCategoryShort
-            // 
-            this.txtCategoryShort.Location = new System.Drawing.Point(465, 12);
-            this.txtCategoryShort.Name = "txtCategoryShort";
-            this.txtCategoryShort.ReadOnly = true;
-            this.txtCategoryShort.Size = new System.Drawing.Size(43, 31);
-            this.txtCategoryShort.TabIndex = 21;
-            this.txtCategoryShort.Visible = false;
+            this.txtDeviceTag.TabIndex = 1;
             // 
             // txtCreatedBy
             // 
@@ -236,7 +227,7 @@ namespace MaintenanceTicketScreen
             this.txtCreatedBy.Location = new System.Drawing.Point(188, 190);
             this.txtCreatedBy.Name = "txtCreatedBy";
             this.txtCreatedBy.Size = new System.Drawing.Size(197, 31);
-            this.txtCreatedBy.TabIndex = 23;
+            this.txtCreatedBy.TabIndex = 3;
             // 
             // label5
             // 
@@ -247,14 +238,23 @@ namespace MaintenanceTicketScreen
             this.label5.TabIndex = 22;
             this.label5.Text = "Created By:";
             // 
+            // lblCategoryShort
+            // 
+            this.lblCategoryShort.AutoSize = true;
+            this.lblCategoryShort.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblCategoryShort.Location = new System.Drawing.Point(453, 9);
+            this.lblCategoryShort.Name = "lblCategoryShort";
+            this.lblCategoryShort.Size = new System.Drawing.Size(0, 25);
+            this.lblCategoryShort.TabIndex = 24;
+            // 
             // frmMainTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 584);
+            this.Controls.Add(this.lblCategoryShort);
             this.Controls.Add(this.txtCreatedBy);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtCategoryShort);
             this.Controls.Add(this.txtDeviceTag);
             this.Controls.Add(this.btnAddTicket);
             this.Controls.Add(this.btnEditTicket);
@@ -301,9 +301,9 @@ namespace MaintenanceTicketScreen
         private System.Windows.Forms.Button btnEditTicket;
         private System.Windows.Forms.Button btnAddTicket;
         private System.Windows.Forms.TextBox txtDeviceTag;
-        private System.Windows.Forms.TextBox txtCategoryShort;
         private System.Windows.Forms.TextBox txtCreatedBy;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblCategoryShort;
     }
 }
 

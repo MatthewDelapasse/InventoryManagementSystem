@@ -17,6 +17,7 @@ namespace MaintenanceTicketScreen
         {
             InitializeComponent();
         }
+
         SqlConnection mainTicketConnection;
         SqlCommand mainTicketCommand;
         SqlDataAdapter mainTicketAdapter;
@@ -50,7 +51,7 @@ namespace MaintenanceTicketScreen
             txtCreatedBy.DataBindings.Add("Text", mainTicketTable, "EmployeeName");
             txtTicketFor.DataBindings.Add("Text", mainTicketTable, "ForWho");
             txtDescription.DataBindings.Add("Text", mainTicketTable, "Description");
-            txtCategoryShort.DataBindings.Add("Text", mainTicketTable, "CategoryShort");
+            lblCategoryShort.DataBindings.Add("Text", mainTicketTable, "CategoryShort");
             chkClosed.DataBindings.Add("Checked", mainTicketTable, "isClosed", true);
 
             // Establish Currency Manager
@@ -117,7 +118,7 @@ namespace MaintenanceTicketScreen
                 b = mainTicketManager.Position;
                 StateSet("Add");
                 mainTicketManager.AddNew();
-                txtCategoryShort.Text = "MAIN";
+                lblCategoryShort.Text = "MAIN";
             }
             catch (Exception)
             {
@@ -223,38 +224,73 @@ namespace MaintenanceTicketScreen
 
             if (txtDeviceTag.Text.Trim().Equals(""))
             {
-                message = "Ticket needs A Device Tag.";
+                message += "Ticket needs A Device Tag.\n";
+                txtDeviceTag.Focus();
+                good = false;
+            }
+
+            bool deviceActive = isDeviceActive(mainTicketConnection);
+            if (deviceActive == false)
+            {
+                message += "This Device cannot be used because it is not active in the system.\n";
                 txtDeviceTag.Focus();
                 good = false;
             }
 
             if (txtDateCreated.Text.ToString().Equals(""))
             {
-                message = "Ticket needs the date it was created.";
+                message += "Ticket needs the date it was created.\n";
                 txtDateCreated.Focus();
                 good = false;
             }
 
             if (txtCreatedBy.Text.ToString().Equals(""))
             {
-                message = "System needs whom made this ticket.";
+                message += "System needs whom made this ticket.\n";
                 txtCreatedBy.Focus();
                 good = false;
             }
 
             if (txtTicketFor.Text.ToString().Equals(""))
             {
-                message = "Ticket needs the user whom this is being leased out to.";
+                message += "Ticket needs the user whom this is being leased out to.\n";
                 txtDateCreated.Focus();
                 good = false;
             }
 
             if (!good)
             {
-                MessageBox.Show(message, "No text fields should be left empty.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(message, "Data Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return (good);
+        }
+
+        private bool isDeviceActive(SqlConnection stringConnection)
+        {
+            string commandString = "SELECT isActive FROM Inventory WHERE DeviceTag = '" + txtDeviceTag.Text + "';";
+            SqlCommand activeCommand = null;
+            SqlDataAdapter activeAdapter = new SqlDataAdapter();
+            DataTable serialNumberTable = new DataTable();
+
+            using (activeCommand = new SqlCommand(commandString, mainTicketConnection))
+            {
+                SqlDataReader activeReader = activeCommand.ExecuteReader();
+
+                if (activeReader.Read() && activeReader.GetBoolean("isActive") == true)
+                {
+                    //MessageBox.Show("This device is active");
+                    activeReader.Close();
+                    return true;
+                }
+                else
+                {
+                    //MessageBox.Show("This device is not active");
+                    activeReader.Close();
+                    return false;
+                }
+            }
+
         }
     }
     // ---------------------------------------- End of Method ---------------------------------------

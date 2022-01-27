@@ -60,14 +60,6 @@ namespace LeasedTicketSearchScreen
             searchedLeasedTicketAdapter.Dispose();
             searchedLeasedTicketTable.Dispose();
         }
-
-        private void btnClearView_Click(object sender, EventArgs e)
-        {
-            grdResults.Rows.Clear();
-            grdResults.Refresh();
-            lblTickets.Text = "";
-        }
-
         // This is when I have my screen back from Leased Ticket Screen
         private string CommandString()
         {

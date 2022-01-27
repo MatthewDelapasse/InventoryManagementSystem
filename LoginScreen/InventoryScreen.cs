@@ -121,8 +121,6 @@ namespace InventoryScreen
             // This tells me the click event is tied to the form
             // MessageBox.Show("You have clicked the Add New Device button");
 
-            inventoryManager.EndCurrentEdit();
-
             // System tries to switch from View to Add
             try
             {
@@ -140,7 +138,9 @@ namespace InventoryScreen
         {
             // This tells me the click event is tied to the form
             // MessageBox.Show("You have clicked the Save button.");
-            
+
+            inventoryManager.EndCurrentEdit();
+
             // If data is missing from any of the text boxes then it will return back to the form what is missing
             if (!ValidateData())
             {
@@ -242,31 +242,63 @@ namespace InventoryScreen
 
             if (txtDeviceTag.Text.Trim().Equals(""))
             {
-                message = "Device needs a Tag.";
+                message += "Device needs a Tag.\n";
                 txtDeviceTag.Focus();
                 good = false;
             }
             
             if (txtDeviceName.Text.Trim().Equals(""))
             {
-                message = "Device needs a Name.";
+                message += "Device needs a Name.\n";
                 txtDeviceName.Focus();
                 good = false;
             }
             
             if (txtSerialNumber.Text.ToString().Equals(""))
             {
-                message = "Device needs a Serial Number";
+                message += "Device needs a Serial Number\n";
+                txtSerialNumber.Focus();
+                good = false;
+            }
+
+            bool isSerialNumberUsed = CheckSerialNumber(inventoryConnection);
+            if (isSerialNumberUsed == true)
+            {
+                message += "A Device with this Serial Number is already in the system\n";
                 txtSerialNumber.Focus();
                 good = false;
             }
 
             if (!good)
             {
-                MessageBox.Show(message, "No text fields should be left empty.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(message, "Data Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return (good);
+        }
+
+        private bool CheckSerialNumber(SqlConnection stringConnection)
+        {
+            string commandString = "SELECT SerialNumber FROM Inventory WHERE SerialNumber = '" + txtSerialNumber.Text + "';";
+            SqlCommand serialNumberCommand = null;
+            SqlDataAdapter serialNumberAdapter = new SqlDataAdapter();
+            DataTable serialNumberTable = new DataTable();
+
+            using (serialNumberCommand = new SqlCommand(commandString, inventoryConnection))
+            {
+                SqlDataReader serialReader = serialNumberCommand.ExecuteReader();
+
+                if (serialReader.Read())
+                {
+                    serialReader.Close();
+                    return true;
+                }
+                else
+                {
+                    serialReader.Close();
+                    return false;
+                }
+            }
         }
         // ---------------------------------------- End of Method ---------------------------------------
     }
@@ -286,4 +318,5 @@ namespace InventoryScreen
  *           created the functionality for the Edit a Device Button
  * 12/16/21 - Remade the database to not have single record in the database
  *            Reworking the AddNewButton and Save Buttons
+ * 1/26/22  - Working on when Serial Numbers are the same in the system.
  */

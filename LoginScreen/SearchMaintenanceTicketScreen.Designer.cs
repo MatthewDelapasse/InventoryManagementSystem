@@ -153,6 +153,7 @@ namespace SearchMaintenanceTicket
             this.btnFindTickets.TabIndex = 11;
             this.btnFindTickets.Text = "Find Ticket(s)";
             this.btnFindTickets.UseVisualStyleBackColor = true;
+            this.btnFindTickets.Click += new System.EventHandler(this.btnFindTickets_Click);
             // 
             // lblTickets
             // 
@@ -196,6 +197,8 @@ namespace SearchMaintenanceTicket
             this.Name = "frmSearchMainTicket";
             this.Text = "Search Maintenance Tickets";
             ((System.ComponentModel.ISupportInitialize)(this.grdResults)).EndInit();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmsearchMainTicket_FormClosing);
+            this.Load += new System.EventHandler(this.frmsearchMainTicket_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

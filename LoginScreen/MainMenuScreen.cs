@@ -12,6 +12,7 @@ using InventoryScreen;
 using LeasedTicketScreen;
 using LeasedTicketSearchScreen;
 using MaintenanceTicketScreen;
+using SearchMaintenanceTicket;
 
 namespace MainMenuScreen
 {
@@ -60,10 +61,8 @@ namespace MainMenuScreen
         // this button points them to a screen that will allow the them to search for maintenance tickets in the system
         private void btnSearchMaintenanceTicket_Click(object sender, EventArgs e)
         {
-            /*
-             * This button will shoot the user
-             * over to the Search for Maintenance Tickets Screen
-             */
+            frmSearchMainTicket searchMainTicket = new frmSearchMainTicket();
+            searchMainTicket.Show();
         }
 
         // this button points managers to a screen that will allow them to see a full list of devices in the system
@@ -95,4 +94,5 @@ namespace MainMenuScreen
  * 12/9/2021 - Changing the view of the Main Menu
  * 1/11/2021 - Deleted the Add buttons off the Main Menu
  * 1/19/2022 - Added the ViewMaintenanceTicket Button event
+ *             Added the SearchMaintenanceTicket Button event
  */

@@ -51,7 +51,7 @@ namespace LeasedTicketScreen
             this.txtDeviceTag = new System.Windows.Forms.TextBox();
             this.txtCreatedBy = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtCategoryShort = new System.Windows.Forms.TextBox();
+            this.lblCategoryShort = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -115,7 +115,7 @@ namespace LeasedTicketScreen
             this.txtOtherItems.Location = new System.Drawing.Point(188, 142);
             this.txtOtherItems.Name = "txtOtherItems";
             this.txtOtherItems.Size = new System.Drawing.Size(315, 31);
-            this.txtOtherItems.TabIndex = 7;
+            this.txtOtherItems.TabIndex = 2;
             // 
             // txtDateCreated
             // 
@@ -123,7 +123,7 @@ namespace LeasedTicketScreen
             this.txtDateCreated.Location = new System.Drawing.Point(188, 187);
             this.txtDateCreated.Name = "txtDateCreated";
             this.txtDateCreated.Size = new System.Drawing.Size(121, 31);
-            this.txtDateCreated.TabIndex = 8;
+            this.txtDateCreated.TabIndex = 3;
             // 
             // txtTicketFor
             // 
@@ -131,7 +131,7 @@ namespace LeasedTicketScreen
             this.txtTicketFor.Location = new System.Drawing.Point(188, 277);
             this.txtTicketFor.Name = "txtTicketFor";
             this.txtTicketFor.Size = new System.Drawing.Size(197, 31);
-            this.txtTicketFor.TabIndex = 9;
+            this.txtTicketFor.TabIndex = 5;
             // 
             // txtDescription
             // 
@@ -140,7 +140,7 @@ namespace LeasedTicketScreen
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(315, 89);
-            this.txtDescription.TabIndex = 10;
+            this.txtDescription.TabIndex = 6;
             // 
             // chkClosed
             // 
@@ -238,7 +238,7 @@ namespace LeasedTicketScreen
             this.txtDeviceTag.Location = new System.Drawing.Point(188, 91);
             this.txtDeviceTag.Name = "txtDeviceTag";
             this.txtDeviceTag.Size = new System.Drawing.Size(121, 31);
-            this.txtDeviceTag.TabIndex = 20;
+            this.txtDeviceTag.TabIndex = 1;
             // 
             // txtCreatedBy
             // 
@@ -246,7 +246,7 @@ namespace LeasedTicketScreen
             this.txtCreatedBy.Location = new System.Drawing.Point(188, 230);
             this.txtCreatedBy.Name = "txtCreatedBy";
             this.txtCreatedBy.Size = new System.Drawing.Size(197, 31);
-            this.txtCreatedBy.TabIndex = 22;
+            this.txtCreatedBy.TabIndex = 4;
             // 
             // label7
             // 
@@ -257,21 +257,22 @@ namespace LeasedTicketScreen
             this.label7.TabIndex = 21;
             this.label7.Text = "Created By:";
             // 
-            // txtCategoryShort
+            // lblCategoryShort
             // 
-            this.txtCategoryShort.Location = new System.Drawing.Point(474, 12);
-            this.txtCategoryShort.Name = "txtCategoryShort";
-            this.txtCategoryShort.Size = new System.Drawing.Size(45, 31);
-            this.txtCategoryShort.TabIndex = 23;
-            this.txtCategoryShort.Text = "LEAS";
-            this.txtCategoryShort.Visible = false;
+            this.lblCategoryShort.AutoSize = true;
+            this.lblCategoryShort.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblCategoryShort.Location = new System.Drawing.Point(460, 9);
+            this.lblCategoryShort.Name = "lblCategoryShort";
+            this.lblCategoryShort.Size = new System.Drawing.Size(59, 25);
+            this.lblCategoryShort.TabIndex = 22;
+            this.lblCategoryShort.Text = "label8";
             // 
             // frmLeasedTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(531, 613);
-            this.Controls.Add(this.txtCategoryShort);
+            this.Controls.Add(this.lblCategoryShort);
             this.Controls.Add(this.txtCreatedBy);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtDeviceTag);
@@ -327,7 +328,7 @@ namespace LeasedTicketScreen
         private System.Windows.Forms.TextBox txtDeviceTag;
         private System.Windows.Forms.TextBox txtCreatedBy;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtCategoryShort;
+        private System.Windows.Forms.Label lblCategoryShort;
     }
 }
 
