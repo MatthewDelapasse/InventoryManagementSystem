@@ -121,7 +121,8 @@ namespace InventoryScreen
             // This tells me the click event is tied to the form
             // MessageBox.Show("You have clicked the Add New Device button");
 
-            // System tries to switch from View to Add
+            // System switches from View to Add mode
+            // Creates a new form to add a new device
             try
             {
                 b = inventoryManager.Position;
@@ -138,28 +139,35 @@ namespace InventoryScreen
         {
             // This tells me the click event is tied to the form
             // MessageBox.Show("You have clicked the Save button.");
-
-            inventoryManager.EndCurrentEdit();
-
-            // If data is missing from any of the text boxes then it will return back to the form what is missing
-            if (!ValidateData())
+            if (state == "Edit")
             {
-                return;
+                inventoryManager.EndCurrentEdit();
+                MessageBox.Show("Device Saved", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                StateSet("View");
             }
-            else
+
+            if (state == "Add")
             {
-                try
+                inventoryManager.EndCurrentEdit();
+                // If data is missing from any of the text boxes then it will return back to the form what is missing
+                if (!ValidateData())
                 {
-                    // This will tell me that all the information is givien
-                    MessageBox.Show("Device Saved", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    StateSet("View");
+                    return;
                 }
-                catch (Exception)
+                else
                 {
-                    MessageBox.Show("Error saving Device.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    try
+                    {
+                        // This will tell me that all the information is givien
+                        MessageBox.Show("Device Saved", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        StateSet("View");
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Error saving Device.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
-            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -170,7 +178,8 @@ namespace InventoryScreen
             // Cancels the edit in progress
             inventoryManager.CancelCurrentEdit();
 
-            // System checks to see if the System was in Add mode and if it is the system goes back to the bookmark
+            // System checks to see if the System was in Add mode and if it is the system goes back
+            // to the bookmark form I was on before I clicked "Add new Device"
             if (state.Equals("Add"))
             {
                 inventoryManager.Position = b;
@@ -185,6 +194,7 @@ namespace InventoryScreen
             // Testing the click event to make sure it is tied to the form
             //MessageBox.Show("Form now entering Edit Mode");
 
+            // System Switches to Edit mode
             StateSet("Edit");
         }
         // ---------------------------------------End of Buton Code ---------------------------------------
@@ -195,6 +205,8 @@ namespace InventoryScreen
             state = Stateapp;
             switch (Stateapp)
             {
+                // This is how the format should be formatted when it is in
+                // View mode
                 case "View":
                     btnFirst.Enabled = true;
                     btnPrevious.Enabled = true;
@@ -213,7 +225,7 @@ namespace InventoryScreen
                     chkLeasedOut.Enabled = false;
                     chkActive.Enabled = false;
                     break;
-                default:
+                default: // Edit or Add Mode
                     btnFirst.Enabled = false;
                     btnPrevious.Enabled = false;
                     btnNext.Enabled = false;
@@ -235,6 +247,9 @@ namespace InventoryScreen
             txtDeviceTag.Focus();
         }
 
+        // Validates the information within the form
+        // in specific boxes. These pieces of data are important to the database
+        // where the other bits of information can be null
         private bool ValidateData()
         {
             string message = "";
@@ -277,6 +292,7 @@ namespace InventoryScreen
             return (good);
         }
 
+        // Checks the database to make sure the serial numbers are already in there
         private bool CheckSerialNumber(SqlConnection stringConnection)
         {
             string commandString = "SELECT SerialNumber FROM Inventory WHERE SerialNumber = '" + txtSerialNumber.Text + "';";
@@ -318,5 +334,6 @@ namespace InventoryScreen
  *           created the functionality for the Edit a Device Button
  * 12/16/21 - Remade the database to not have single record in the database
  *            Reworking the AddNewButton and Save Buttons
- * 1/26/22  - Working on when Serial Numbers are the same in the system.
+ * 1/26/22  - Working on when Serial Numbers are the same in the system
+ * 1/27/22  - Refining my Inventory Screen to correct errors caused in testing
  */

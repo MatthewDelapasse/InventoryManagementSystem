@@ -78,6 +78,7 @@ namespace LeasedTicketScreen
                 MessageBox.Show("Error saving ticket: \r\n" + ex.Message, "Error" ,MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+
             // Closing the connection
             leasedTicketConnection.Close();
 
@@ -250,7 +251,7 @@ namespace LeasedTicketScreen
 
             if (txtCreatedBy.Text.ToString().Equals(""))
             {
-                message += "System needs whom made this ticket.\n";
+                message += "System needs the Employee whom made this ticket.\n";
                 txtCreatedBy.Focus();
                 good = false;
             }

@@ -71,6 +71,8 @@ namespace LoginScreen
                             //Message.Box("User was found");
                             userReader.Close();
                             getUserPermissions = "SELECT IsAdmin FROM Employees WHERE Username ='" + txtUsername.Text + "' AND Password ='" + txtPassword.Text + "';";
+
+                            //This checks the users permissions
                             bool isUserAdmin = CheckUserPermissions(getUserPermissions, loginConnection);
 
                             txtUsername.Clear();
@@ -79,9 +81,9 @@ namespace LoginScreen
                             Employees user = new Employees(txtUsername.Text, txtPassword.Text, isUserAdmin);
 
                             // Here is the new way we check to see if the user is an Admin.
-                            frmMainMenu menu = new frmMainMenu(isUserAdmin);
+                            frmMainMenu menu = new frmMainMenu(this,isUserAdmin);
                             menu.Show();
-
+                            this.Hide();
 
                             // This was the old way of checking if user is admin back on 12/1/2021
                             //// Now the system has figured out if the user is an Admin, it can make its adjustments for the rest of the system
@@ -111,8 +113,6 @@ namespace LoginScreen
                             MessageBox.Show("Username/Password is inccorect!", "Incorrect Username/Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-
-
                 }
             }
             catch (Exception ex)
@@ -155,4 +155,5 @@ namespace LoginScreen
                 Setting the appropriate permissions so that the Main Menu forms look different based on the user
                 Creating Data Validation for the process that checks the database for user
                 Completed the login setup 
+   2/8/2022  -  manipulated the instance of a new frmMainMenu
 */

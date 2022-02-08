@@ -121,7 +121,6 @@ namespace MainMenuScreen
             this.btnAddNewUser.TabIndex = 8;
             this.btnAddNewUser.Text = "Add A New User";
             this.btnAddNewUser.UseVisualStyleBackColor = true;
-            //this.btnAddNewUser.Click += new System.EventHandler(this.btnAddNewUser_Click);
             // 
             // frmMainMenu
             // 
@@ -139,6 +138,7 @@ namespace MainMenuScreen
             this.Name = "frmMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Matt\'s Inventory Management Main Menu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMainMenu_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

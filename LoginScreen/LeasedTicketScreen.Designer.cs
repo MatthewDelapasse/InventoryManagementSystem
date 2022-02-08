@@ -49,9 +49,9 @@ namespace LeasedTicketScreen
             this.btnEditTicket = new System.Windows.Forms.Button();
             this.btnAddTicket = new System.Windows.Forms.Button();
             this.txtDeviceTag = new System.Windows.Forms.TextBox();
-            this.txtCreatedBy = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lblCategoryShort = new System.Windows.Forms.Label();
+            this.txtCreatedBy = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -240,14 +240,6 @@ namespace LeasedTicketScreen
             this.txtDeviceTag.Size = new System.Drawing.Size(121, 31);
             this.txtDeviceTag.TabIndex = 1;
             // 
-            // txtCreatedBy
-            // 
-            this.txtCreatedBy.BackColor = System.Drawing.Color.White;
-            this.txtCreatedBy.Location = new System.Drawing.Point(188, 230);
-            this.txtCreatedBy.Name = "txtCreatedBy";
-            this.txtCreatedBy.Size = new System.Drawing.Size(197, 31);
-            this.txtCreatedBy.TabIndex = 4;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -267,13 +259,21 @@ namespace LeasedTicketScreen
             this.lblCategoryShort.TabIndex = 22;
             this.lblCategoryShort.Text = "label8";
             // 
+            // txtCreatedBy
+            // 
+            this.txtCreatedBy.BackColor = System.Drawing.Color.White;
+            this.txtCreatedBy.Location = new System.Drawing.Point(188, 230);
+            this.txtCreatedBy.Name = "txtCreatedBy";
+            this.txtCreatedBy.Size = new System.Drawing.Size(197, 31);
+            this.txtCreatedBy.TabIndex = 23;
+            // 
             // frmLeasedTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(531, 613);
-            this.Controls.Add(this.lblCategoryShort);
             this.Controls.Add(this.txtCreatedBy);
+            this.Controls.Add(this.lblCategoryShort);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtDeviceTag);
             this.Controls.Add(this.btnAddTicket);
@@ -326,9 +326,9 @@ namespace LeasedTicketScreen
         private System.Windows.Forms.Button btnEditTicket;
         private System.Windows.Forms.Button btnAddTicket;
         private System.Windows.Forms.TextBox txtDeviceTag;
-        private System.Windows.Forms.TextBox txtCreatedBy;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblCategoryShort;
+        private System.Windows.Forms.TextBox txtCreatedBy;
     }
 }
 

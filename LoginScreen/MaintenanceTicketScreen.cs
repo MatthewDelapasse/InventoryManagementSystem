@@ -190,8 +190,9 @@ namespace MaintenanceTicketScreen
                     btnCancel.Enabled = false;
                     txtDeviceTag.BackColor = Color.Blue;
                     txtDeviceTag.ForeColor = Color.White;
-                    txtDeviceTag.AllowDrop = false;
+                    txtDeviceTag.ReadOnly = true;
                     txtDateCreated.ReadOnly = true;
+                    txtCreatedBy.ReadOnly = true;
                     txtTicketFor.ReadOnly = true;
                     txtDescription.ReadOnly = true;
                     chkClosed.Enabled = false;
@@ -207,8 +208,9 @@ namespace MaintenanceTicketScreen
                     btnCancel.Enabled = true;
                     txtDeviceTag.BackColor = Color.Red;
                     txtDeviceTag.ForeColor = Color.White;
-                    txtDeviceTag.AllowDrop = true;
+                    txtDeviceTag.ReadOnly = false;
                     txtDateCreated.ReadOnly = false;
+                    txtCreatedBy.ReadOnly = false;
                     txtTicketFor.ReadOnly = false;
                     txtDescription.ReadOnly = false;
                     chkClosed.Enabled = true;
