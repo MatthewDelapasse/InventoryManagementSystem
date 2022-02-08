@@ -61,6 +61,38 @@ namespace SearchMaintenanceTicket
             searchMainTicketTable.Dispose();
         }
 
+        private void txtDateCreated_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '/'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTicketsFor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) || char.IsSeparator(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCreatedBy_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) || char.IsSeparator(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
         // This is when I have my screen back from Leased Ticket Screen
         private string CommandString()
         {
@@ -93,6 +125,5 @@ namespace SearchMaintenanceTicket
 
             return commandStringText;
         }
-
     }
 }

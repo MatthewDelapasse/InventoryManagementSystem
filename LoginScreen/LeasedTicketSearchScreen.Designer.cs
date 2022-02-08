@@ -104,8 +104,10 @@ namespace LeasedTicketSearchScreen
             this.txtDateCreated.BackColor = System.Drawing.Color.White;
             this.txtDateCreated.Location = new System.Drawing.Point(146, 67);
             this.txtDateCreated.Name = "txtDateCreated";
+            this.txtDateCreated.PlaceholderText = "00/00/0000";
             this.txtDateCreated.Size = new System.Drawing.Size(204, 31);
             this.txtDateCreated.TabIndex = 6;
+            this.txtDateCreated.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDateCreated_KeyPress);
             // 
             // txtTicketsFor
             // 
@@ -114,6 +116,7 @@ namespace LeasedTicketSearchScreen
             this.txtTicketsFor.Name = "txtTicketsFor";
             this.txtTicketsFor.Size = new System.Drawing.Size(204, 31);
             this.txtTicketsFor.TabIndex = 7;
+            this.txtTicketsFor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTicketsFor_KeyPress);
             // 
             // txtOtherItems
             // 
@@ -147,12 +150,14 @@ namespace LeasedTicketSearchScreen
             // 
             // btnFindTickets
             // 
+            this.btnFindTickets.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnFindTickets.ForeColor = System.Drawing.Color.White;
             this.btnFindTickets.Location = new System.Drawing.Point(77, 165);
             this.btnFindTickets.Name = "btnFindTickets";
             this.btnFindTickets.Size = new System.Drawing.Size(233, 34);
             this.btnFindTickets.TabIndex = 11;
             this.btnFindTickets.Text = "Find Ticket(s)";
-            this.btnFindTickets.UseVisualStyleBackColor = true;
+            this.btnFindTickets.UseVisualStyleBackColor = false;
             this.btnFindTickets.Click += new System.EventHandler(this.btnFindTickets_Click);
             // 
             // lblTickets

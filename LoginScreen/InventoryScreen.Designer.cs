@@ -117,6 +117,7 @@ namespace InventoryScreen
             this.txtSerialNumber.Name = "txtSerialNumber";
             this.txtSerialNumber.Size = new System.Drawing.Size(347, 31);
             this.txtSerialNumber.TabIndex = 3;
+            this.txtSerialNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSerialNumber_KeyPress);
             // 
             // label5
             // 
@@ -162,90 +163,106 @@ namespace InventoryScreen
             // 
             // btnAddNewDevice
             // 
+            this.btnAddNewDevice.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnAddNewDevice.ForeColor = System.Drawing.Color.White;
             this.btnAddNewDevice.Location = new System.Drawing.Point(110, 563);
             this.btnAddNewDevice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddNewDevice.Name = "btnAddNewDevice";
             this.btnAddNewDevice.Size = new System.Drawing.Size(166, 62);
             this.btnAddNewDevice.TabIndex = 11;
             this.btnAddNewDevice.Text = "Add A New Device";
-            this.btnAddNewDevice.UseVisualStyleBackColor = true;
+            this.btnAddNewDevice.UseVisualStyleBackColor = false;
             this.btnAddNewDevice.Click += new System.EventHandler(this.btnAddNewDevice_Click);
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(176, 635);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 45);
             this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(284, 635);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 45);
             this.btnCancel.TabIndex = 14;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnFirst
             // 
+            this.btnFirst.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnFirst.ForeColor = System.Drawing.Color.White;
             this.btnFirst.Location = new System.Drawing.Point(167, 507);
             this.btnFirst.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnFirst.Name = "btnFirst";
             this.btnFirst.Size = new System.Drawing.Size(51, 47);
             this.btnFirst.TabIndex = 7;
             this.btnFirst.Text = "|<";
-            this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.UseVisualStyleBackColor = false;
             this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
             // btnPrevious
             // 
+            this.btnPrevious.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnPrevious.ForeColor = System.Drawing.Color.White;
             this.btnPrevious.Location = new System.Drawing.Point(227, 507);
             this.btnPrevious.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(51, 47);
             this.btnPrevious.TabIndex = 8;
             this.btnPrevious.Text = "<";
-            this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.UseVisualStyleBackColor = false;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // btnNext
             // 
+            this.btnNext.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnNext.ForeColor = System.Drawing.Color.White;
             this.btnNext.Location = new System.Drawing.Point(287, 507);
             this.btnNext.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(51, 47);
             this.btnNext.TabIndex = 9;
             this.btnNext.Text = ">";
-            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnLast
             // 
+            this.btnLast.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnLast.ForeColor = System.Drawing.Color.White;
             this.btnLast.Location = new System.Drawing.Point(347, 507);
             this.btnLast.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLast.Name = "btnLast";
             this.btnLast.Size = new System.Drawing.Size(51, 47);
             this.btnLast.TabIndex = 10;
             this.btnLast.Text = ">|";
-            this.btnLast.UseVisualStyleBackColor = true;
+            this.btnLast.UseVisualStyleBackColor = false;
             this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
             // 
             // btnEditDevice
             // 
+            this.btnEditDevice.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnEditDevice.ForeColor = System.Drawing.Color.White;
             this.btnEditDevice.Location = new System.Drawing.Point(284, 563);
             this.btnEditDevice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEditDevice.Name = "btnEditDevice";
             this.btnEditDevice.Size = new System.Drawing.Size(166, 62);
             this.btnEditDevice.TabIndex = 12;
             this.btnEditDevice.Text = "Edit Device Info";
-            this.btnEditDevice.UseVisualStyleBackColor = true;
+            this.btnEditDevice.UseVisualStyleBackColor = false;
             this.btnEditDevice.Click += new System.EventHandler(this.btnEditDevice_Click);
             // 
             // frmInventory

@@ -104,8 +104,10 @@ namespace SearchMaintenanceTicket
             this.txtDateCreated.BackColor = System.Drawing.Color.White;
             this.txtDateCreated.Location = new System.Drawing.Point(146, 67);
             this.txtDateCreated.Name = "txtDateCreated";
+            this.txtDateCreated.PlaceholderText = "00/00/0000";
             this.txtDateCreated.Size = new System.Drawing.Size(204, 31);
             this.txtDateCreated.TabIndex = 6;
+            this.txtDateCreated.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDateCreated_KeyPress);
             // 
             // txtTicketsFor
             // 
@@ -114,6 +116,7 @@ namespace SearchMaintenanceTicket
             this.txtTicketsFor.Name = "txtTicketsFor";
             this.txtTicketsFor.Size = new System.Drawing.Size(204, 31);
             this.txtTicketsFor.TabIndex = 7;
+            this.txtTicketsFor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTicketsFor_KeyPress);
             // 
             // txtCreatedBy
             // 
@@ -122,6 +125,7 @@ namespace SearchMaintenanceTicket
             this.txtCreatedBy.Name = "txtCreatedBy";
             this.txtCreatedBy.Size = new System.Drawing.Size(193, 31);
             this.txtCreatedBy.TabIndex = 8;
+            this.txtCreatedBy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCreatedBy_KeyPress);
             // 
             // txtKeywords
             // 
@@ -147,12 +151,14 @@ namespace SearchMaintenanceTicket
             // 
             // btnFindTickets
             // 
-            this.btnFindTickets.Location = new System.Drawing.Point(31, 165);
+            this.btnFindTickets.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnFindTickets.ForeColor = System.Drawing.Color.White;
+            this.btnFindTickets.Location = new System.Drawing.Point(70, 164);
             this.btnFindTickets.Name = "btnFindTickets";
-            this.btnFindTickets.Size = new System.Drawing.Size(167, 34);
+            this.btnFindTickets.Size = new System.Drawing.Size(233, 34);
             this.btnFindTickets.TabIndex = 11;
             this.btnFindTickets.Text = "Find Ticket(s)";
-            this.btnFindTickets.UseVisualStyleBackColor = true;
+            this.btnFindTickets.UseVisualStyleBackColor = false;
             this.btnFindTickets.Click += new System.EventHandler(this.btnFindTickets_Click);
             // 
             // lblTickets
@@ -196,9 +202,9 @@ namespace SearchMaintenanceTicket
             this.Controls.Add(this.label1);
             this.Name = "frmSearchMainTicket";
             this.Text = "Search Maintenance Tickets";
-            ((System.ComponentModel.ISupportInitialize)(this.grdResults)).EndInit();
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmsearchMainTicket_FormClosing);
             this.Load += new System.EventHandler(this.frmsearchMainTicket_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.grdResults)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

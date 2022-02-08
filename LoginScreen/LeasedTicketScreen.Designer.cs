@@ -57,10 +57,10 @@ namespace LeasedTicketScreen
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(154, 32);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(148, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 38);
+            this.label1.Size = new System.Drawing.Size(237, 48);
             this.label1.TabIndex = 0;
             this.label1.Text = "Lease Tickets";
             // 
@@ -122,8 +122,10 @@ namespace LeasedTicketScreen
             this.txtDateCreated.BackColor = System.Drawing.Color.White;
             this.txtDateCreated.Location = new System.Drawing.Point(188, 187);
             this.txtDateCreated.Name = "txtDateCreated";
+            this.txtDateCreated.PlaceholderText = "00/00/0000";
             this.txtDateCreated.Size = new System.Drawing.Size(121, 31);
             this.txtDateCreated.TabIndex = 3;
+            this.txtDateCreated.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDateCreated_KeyPress);
             // 
             // txtTicketFor
             // 
@@ -132,6 +134,7 @@ namespace LeasedTicketScreen
             this.txtTicketFor.Name = "txtTicketFor";
             this.txtTicketFor.Size = new System.Drawing.Size(197, 31);
             this.txtTicketFor.TabIndex = 5;
+            this.txtTicketFor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTicketFor_KeyPress);
             // 
             // txtDescription
             // 
@@ -154,82 +157,98 @@ namespace LeasedTicketScreen
             // 
             // btnFirst
             // 
+            this.btnFirst.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnFirst.ForeColor = System.Drawing.Color.White;
             this.btnFirst.Location = new System.Drawing.Point(95, 489);
             this.btnFirst.Name = "btnFirst";
             this.btnFirst.Size = new System.Drawing.Size(63, 34);
             this.btnFirst.TabIndex = 12;
             this.btnFirst.Text = "|<";
-            this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.UseVisualStyleBackColor = false;
             this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
             // btnPrevious
             // 
+            this.btnPrevious.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnPrevious.ForeColor = System.Drawing.Color.White;
             this.btnPrevious.Location = new System.Drawing.Point(174, 489);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(63, 34);
             this.btnPrevious.TabIndex = 13;
             this.btnPrevious.Text = "<";
-            this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.UseVisualStyleBackColor = false;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // btnNext
             // 
+            this.btnNext.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnNext.ForeColor = System.Drawing.Color.White;
             this.btnNext.Location = new System.Drawing.Point(246, 489);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(63, 34);
             this.btnNext.TabIndex = 14;
             this.btnNext.Text = ">";
-            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnLast
             // 
+            this.btnLast.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnLast.ForeColor = System.Drawing.Color.White;
             this.btnLast.Location = new System.Drawing.Point(332, 489);
             this.btnLast.Name = "btnLast";
             this.btnLast.Size = new System.Drawing.Size(63, 34);
             this.btnLast.TabIndex = 15;
             this.btnLast.Text = ">|";
-            this.btnLast.UseVisualStyleBackColor = true;
+            this.btnLast.UseVisualStyleBackColor = false;
             this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(125, 573);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(112, 34);
             this.btnSave.TabIndex = 16;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(246, 573);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(112, 34);
             this.btnCancel.TabIndex = 17;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnEditTicket
             // 
+            this.btnEditTicket.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnEditTicket.ForeColor = System.Drawing.Color.White;
             this.btnEditTicket.Location = new System.Drawing.Point(118, 535);
             this.btnEditTicket.Name = "btnEditTicket";
             this.btnEditTicket.Size = new System.Drawing.Size(119, 34);
             this.btnEditTicket.TabIndex = 18;
             this.btnEditTicket.Text = "Edit Ticket";
-            this.btnEditTicket.UseVisualStyleBackColor = true;
+            this.btnEditTicket.UseVisualStyleBackColor = false;
             this.btnEditTicket.Click += new System.EventHandler(this.btnEditTicket_Click);
             // 
             // btnAddTicket
             // 
+            this.btnAddTicket.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnAddTicket.ForeColor = System.Drawing.Color.White;
             this.btnAddTicket.Location = new System.Drawing.Point(246, 535);
             this.btnAddTicket.Name = "btnAddTicket";
             this.btnAddTicket.Size = new System.Drawing.Size(124, 34);
             this.btnAddTicket.TabIndex = 19;
             this.btnAddTicket.Text = "Add a Ticket";
-            this.btnAddTicket.UseVisualStyleBackColor = true;
+            this.btnAddTicket.UseVisualStyleBackColor = false;
             this.btnAddTicket.Click += new System.EventHandler(this.btnAddTicket_Click);
             // 
             // txtDeviceTag
@@ -266,6 +285,7 @@ namespace LeasedTicketScreen
             this.txtCreatedBy.Name = "txtCreatedBy";
             this.txtCreatedBy.Size = new System.Drawing.Size(197, 31);
             this.txtCreatedBy.TabIndex = 23;
+            this.txtCreatedBy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCreatedBy_KeyPress);
             // 
             // frmLeasedTicket
             // 

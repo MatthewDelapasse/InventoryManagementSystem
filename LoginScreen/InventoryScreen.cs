@@ -199,6 +199,18 @@ namespace InventoryScreen
         }
         // ---------------------------------------End of Buton Code ---------------------------------------
 
+
+        // --------------------------------------- TextBox Code ---------------------------------------
+        private void txtSerialNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        // ---------------------------------------End of TextBox Code ---------------------------------------
+
+
         // ------------------------------------------- Methods ---------------------------------------
         private void StateSet(string Stateapp)
         {
@@ -236,7 +248,7 @@ namespace InventoryScreen
                     btnAddNewDevice.Enabled = false;
                     txtDeviceTag.BackColor = Color.Red;
                     txtDeviceTag.ForeColor = Color.White;
-                    txtDeviceTag.ReadOnly = false;
+                    txtDeviceTag.ReadOnly = true;
                     txtDeviceName.ReadOnly = false;
                     txtSerialNumber.ReadOnly = false;
                     txtDescription.ReadOnly = false;
@@ -291,6 +303,7 @@ namespace InventoryScreen
 
             return (good);
         }
+        
 
         // Checks the database to make sure the serial numbers are already in there
         private bool CheckSerialNumber(SqlConnection stringConnection)

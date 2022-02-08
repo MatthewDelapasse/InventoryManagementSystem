@@ -51,76 +51,88 @@ namespace MainMenuScreen
             // 
             // btnViewLeaseTickets
             // 
+            this.btnViewLeaseTickets.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnViewLeaseTickets.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnViewLeaseTickets.ForeColor = System.Drawing.Color.White;
             this.btnViewLeaseTickets.Location = new System.Drawing.Point(92, 141);
             this.btnViewLeaseTickets.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnViewLeaseTickets.Name = "btnViewLeaseTickets";
             this.btnViewLeaseTickets.Size = new System.Drawing.Size(216, 85);
             this.btnViewLeaseTickets.TabIndex = 2;
             this.btnViewLeaseTickets.Text = "View Lease Tickets";
-            this.btnViewLeaseTickets.UseVisualStyleBackColor = true;
+            this.btnViewLeaseTickets.UseVisualStyleBackColor = false;
             this.btnViewLeaseTickets.Click += new System.EventHandler(this.btnViewLeaseTickets_Click);
             // 
             // btnSearchLeaseTicket
             // 
+            this.btnSearchLeaseTicket.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnSearchLeaseTicket.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSearchLeaseTicket.ForeColor = System.Drawing.Color.White;
             this.btnSearchLeaseTicket.Location = new System.Drawing.Point(92, 236);
             this.btnSearchLeaseTicket.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSearchLeaseTicket.Name = "btnSearchLeaseTicket";
             this.btnSearchLeaseTicket.Size = new System.Drawing.Size(216, 83);
             this.btnSearchLeaseTicket.TabIndex = 3;
             this.btnSearchLeaseTicket.Text = "Search For Lease Tickets";
-            this.btnSearchLeaseTicket.UseVisualStyleBackColor = true;
+            this.btnSearchLeaseTicket.UseVisualStyleBackColor = false;
             this.btnSearchLeaseTicket.Click += new System.EventHandler(this.btnSearchLeaseTicket_Click);
             // 
             // btnViewMaintenanceTicket
             // 
+            this.btnViewMaintenanceTicket.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnViewMaintenanceTicket.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnViewMaintenanceTicket.ForeColor = System.Drawing.Color.White;
             this.btnViewMaintenanceTicket.Location = new System.Drawing.Point(316, 144);
             this.btnViewMaintenanceTicket.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnViewMaintenanceTicket.Name = "btnViewMaintenanceTicket";
             this.btnViewMaintenanceTicket.Size = new System.Drawing.Size(216, 82);
             this.btnViewMaintenanceTicket.TabIndex = 5;
             this.btnViewMaintenanceTicket.Text = "View Maintenance Tickets";
-            this.btnViewMaintenanceTicket.UseVisualStyleBackColor = true;
+            this.btnViewMaintenanceTicket.UseVisualStyleBackColor = false;
             this.btnViewMaintenanceTicket.Click += new System.EventHandler(this.btnViewMaintenanceTicket_Click);
             // 
             // btnSearchMaintenanceTicket
             // 
+            this.btnSearchMaintenanceTicket.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnSearchMaintenanceTicket.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSearchMaintenanceTicket.ForeColor = System.Drawing.Color.White;
             this.btnSearchMaintenanceTicket.Location = new System.Drawing.Point(316, 238);
             this.btnSearchMaintenanceTicket.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSearchMaintenanceTicket.Name = "btnSearchMaintenanceTicket";
             this.btnSearchMaintenanceTicket.Size = new System.Drawing.Size(216, 82);
             this.btnSearchMaintenanceTicket.TabIndex = 6;
             this.btnSearchMaintenanceTicket.Text = "Search For Maintenance Ticket";
-            this.btnSearchMaintenanceTicket.UseVisualStyleBackColor = true;
+            this.btnSearchMaintenanceTicket.UseVisualStyleBackColor = false;
             this.btnSearchMaintenanceTicket.Click += new System.EventHandler(this.btnSearchMaintenanceTicket_Click);
             // 
             // btnViewInventory
             // 
             this.btnViewInventory.AccessibleName = "";
+            this.btnViewInventory.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnViewInventory.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnViewInventory.ForeColor = System.Drawing.Color.White;
             this.btnViewInventory.Location = new System.Drawing.Point(123, 344);
             this.btnViewInventory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnViewInventory.Name = "btnViewInventory";
             this.btnViewInventory.Size = new System.Drawing.Size(184, 72);
             this.btnViewInventory.TabIndex = 7;
             this.btnViewInventory.Text = "View Inventory";
-            this.btnViewInventory.UseVisualStyleBackColor = true;
+            this.btnViewInventory.UseVisualStyleBackColor = false;
             this.btnViewInventory.Click += new System.EventHandler(this.btnViewInventory_Click);
             // 
             // btnAddNewUser
             // 
             this.btnAddNewUser.AccessibleName = "";
+            this.btnAddNewUser.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnAddNewUser.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddNewUser.ForeColor = System.Drawing.Color.White;
             this.btnAddNewUser.Location = new System.Drawing.Point(316, 344);
             this.btnAddNewUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddNewUser.Name = "btnAddNewUser";
             this.btnAddNewUser.Size = new System.Drawing.Size(184, 72);
             this.btnAddNewUser.TabIndex = 8;
             this.btnAddNewUser.Text = "Add A New User";
-            this.btnAddNewUser.UseVisualStyleBackColor = true;
+            this.btnAddNewUser.UseVisualStyleBackColor = false;
             // 
             // frmMainMenu
             // 

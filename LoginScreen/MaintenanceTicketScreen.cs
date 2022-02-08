@@ -173,6 +173,43 @@ namespace MaintenanceTicketScreen
             StateSet("View");
         }
         // ---------------------------------------End of Buton Code ---------------------------------------
+
+
+        // --------------------------------------- TextBox Code ---------------------------------------
+        private void txtDateCreated_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '/'))
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtCreatedBy_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) || char.IsSeparator(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+
+        private void txtTicketFor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) || char.IsSeparator(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+        // ---------------------------------------End of TextBox Code ---------------------------------------
+
+
         // ------------------------------------------- Methods ---------------------------------------
         private void StateSet(string Stateapp)
         {
